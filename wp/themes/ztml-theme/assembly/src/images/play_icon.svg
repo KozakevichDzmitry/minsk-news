@@ -1,0 +1,9 @@
+<svg id="play_icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M20 40C8.955 40 0 31.045 0 20C0 8.955 8.955 0 20 0C31.045 0 40 8.955 40 20C40 31.045 31.045 40 20 40ZM15 10.015V29.985L30 20L15 10.015Z" fill="url(#paint0_linear_1179_29786)" />
+        <defs>
+            <linearGradient id="paint0_linear_1179_29786" x1="20" y1="0" x2="20" y2="35" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FDFDFD" />
+                <stop offset="1" stop-color="#C7C7C7" />
+            </linearGradient>
+        </defs>
+</svg>

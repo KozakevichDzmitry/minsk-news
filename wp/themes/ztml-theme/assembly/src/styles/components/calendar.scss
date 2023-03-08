@@ -1,0 +1,162 @@
+.datepicker-toggle {
+	transition: -webkit-transform 0.2s ease-out;
+	transition: background 0.2s ease-out;
+	transition: background 0.2s ease-out, -webkit-transform 0.2s ease-out;
+	position: relative;
+
+	label {
+		position: relative;
+
+		&:hover {
+			span {
+				color: #2b5e92;
+				text-decoration: underline;
+			}
+			.ui-datepicker-trigger {
+				background-image: url("data:image/svg+xml,%3Csvg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 14.4C0 14.7319 0.25025 15 0.56 15H13.44C13.7498 15 14 14.7319 14 14.4V6.525H0V14.4ZM13.44 1.35H10.5V0.15C10.5 0.0675 10.437 0 10.36 0H9.38C9.303 0 9.24 0.0675 9.24 0.15V1.35H4.76V0.15C4.76 0.0675 4.697 0 4.62 0H3.64C3.563 0 3.5 0.0675 3.5 0.15V1.35H0.56C0.25025 1.35 0 1.61813 0 1.95V5.25H14V1.95C14 1.61813 13.7498 1.35 13.44 1.35Z' fill='%23214972'/%3E%3C/svg%3E%0A");
+			}
+		}
+		&:active {
+			span {
+				color: #9cb8d3;
+			}
+
+			.ui-datepicker-trigger {
+				background-image: url("data:image/svg+xml,%3Csvg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 14.4C0 14.7319 0.25025 15 0.56 15H13.44C13.7498 15 14 14.7319 14 14.4V6.525H0V14.4ZM13.44 1.35H10.5V0.15C10.5 0.0675 10.437 0 10.36 0H9.38C9.303 0 9.24 0.0675 9.24 0.15V1.35H4.76V0.15C4.76 0.0675 4.697 0 4.62 0H3.64C3.563 0 3.5 0.0675 3.5 0.15V1.35H0.56C0.25025 1.35 0 1.61813 0 1.95V5.25H14V1.95C14 1.61813 13.7498 1.35 13.44 1.35Z' fill='%23214972' fill-opacity='0.6'/%3E%3C/svg%3E%0A");
+			}
+		}
+
+		input.datepicker-input,
+		input.datepicker-input::-webkit-calendar-picker-indicator {
+			opacity: 0;
+			width: 0px;
+			height: 0px;
+		}
+
+		span {
+			font-family: "Noto Sans";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 12px;
+			line-height: 16px;
+			text-align: right;
+			color: $blue-color;
+			cursor: pointer;
+		}
+
+		.ui-datepicker-trigger {
+			width: 15px;
+			height: 15px;
+			color: transparent;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-image: url("data:image/svg+xml,%3Csvg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 14.4C0 14.7319 0.25025 15 0.56 15H13.44C13.7498 15 14 14.7319 14 14.4V6.525H0V14.4ZM13.44 1.35H10.5V0.15C10.5 0.0675 10.437 0 10.36 0H9.38C9.303 0 9.24 0.0675 9.24 0.15V1.35H4.76V0.15C4.76 0.0675 4.697 0 4.62 0H3.64C3.563 0 3.5 0.0675 3.5 0.15V1.35H0.56C0.25025 1.35 0 1.61813 0 1.95V5.25H14V1.95C14 1.61813 13.7498 1.35 13.44 1.35Z' fill='%23214972' fill-opacity='0.6'/%3E%3C/svg%3E%0A");
+		}
+	}
+
+	.datepicker-reset-button {
+		position: absolute;
+		right: 4px;
+		top: -24px;
+		color: #e8787b;
+		font-size: 14px;
+		font-weight: 700;
+		display: none;
+	}
+}
+
+.ui-widget.ui-datepicker {
+	background: $white-color;
+	border: 1px solid $blue-color;
+	padding: 10px;
+	box-shadow: 0px 3px 4px rgb(125 125 125 / 25%),
+		0px -3px 4px rgb(125 125 125 / 10%);
+	min-width: 230px;
+
+	.ui-datepicker-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 5px;
+
+		.ui-datepicker-year,
+		.ui-datepicker-month {
+			margin: 0px;
+			border: none;
+			background: transparent;
+		}
+
+		.ui-datepicker-title,
+		.ui-datepicker-month {
+			font-family: "Noto Sans";
+			font-style: normal;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 23px;
+			color: $black-color;
+
+			order: 2;
+		}
+
+		.ui-datepicker-prev {
+			cursor: pointer;
+			order: 1;
+		}
+		.ui-datepicker-next {
+			cursor: pointer;
+			order: 3;
+		}
+	}
+
+	.ui-datepicker-calendar {
+		width: 100%;
+
+		tbody {
+			width: 100%;
+		}
+
+		thead {
+			th {
+				span {
+					color: $blue-color;
+					text-transform: uppercase;
+				}
+			}
+		}
+
+		td {
+			a {
+				text-decoration: none;
+				color: black;
+			}
+
+			&.ui-datepicker-current-day {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: #214972;
+				border-radius: 50%;
+				height: 20px;
+				width: 20px;
+				box-shadow: 2px 5px 4px rgb(125 125 125 / 25%),
+					0px -3px 4px rgb(125 125 125 / 10%);
+
+				a {
+					color: white;
+					font-weight: bolder;
+				}
+			}
+
+			&.ui-datepicker-week-end a {
+				color: $red-color;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.datepicker-toggle {
+		display: flex;
+		gap: 10px;
+	}
+}

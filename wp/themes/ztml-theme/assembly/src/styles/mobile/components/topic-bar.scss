@@ -1,0 +1,27 @@
+@media (max-width: 768px) {
+  .topic-bar {
+    height: max-content;
+    flex-direction: column;
+    align-items: initial;
+
+    & &__container {
+      padding: 4px 0 7px 20px;
+
+      .topic-bar__title {
+        font-size: 23px;
+      }
+
+      .header_splahesh {
+        padding-right: 9px;
+      }
+
+      .topic-bar__title {
+        line-height: 2.5ex;
+      }
+    }
+
+    .datepicker-toggle {
+      margin: 10px 0 0 20px;
+    }
+  }
+}

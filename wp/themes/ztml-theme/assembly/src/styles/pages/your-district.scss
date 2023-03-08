@@ -1,0 +1,206 @@
+.district-preview {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	font-family: "Noto Sans";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 23px;
+	line-height: 32px;
+	text-align: right;
+	color: $black60-color;
+	align-items: flex-start;
+	margin-bottom: 30px;
+
+	.district-item {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		border-right: 1px solid $blue-color;
+		border-top: 1px solid $blue-color;
+		border-bottom: 1px solid $blue-color;
+		padding: 20px 15px;
+		justify-content: end;
+
+		&:not(.active) {
+			writing-mode: vertical-rl;
+			text-orientation: mixed;
+			filter: blur(1px);
+			cursor: pointer;
+			transform: rotate(180deg);
+			font-family: "Noto Sans";
+			font-style: normal;
+			font-weight: 700;
+			font-size: 25px;
+			line-height: 34px;
+			text-align: right;
+			color: $black60-color;
+		}
+
+		&:not(.active):hover {
+			font-family: "Noto Sans";
+			font-style: normal;
+			font-weight: 700;
+			font-size: 25px;
+			line-height: 34px;
+			text-align: right;
+			color: $black-color;
+			filter: none;
+		}
+
+		.content {
+			display: none;
+		}
+
+		&.active {
+			min-width: 320px;
+			border: 2px solid $blue-color;
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			padding: 20px 10px;
+			display: flex;
+			flex-direction: column;
+			width: 320px;
+			background-color: $white-color;
+
+			& > div {
+				width: 100%;
+			}
+
+			.content {
+				display: block;
+				position: relative;
+
+				> img {
+					width: 100%;
+					margin-bottom: 10px;
+				}
+
+				.district-news {
+					display: grid;
+					gap: 25px;
+					max-height: 250px;
+					overflow: hidden;
+					margin-bottom: 10px;
+					position: relative;
+
+					&::after {
+						content: "";
+						position: absolute;
+						background: #020024;
+						background: linear-gradient(
+							360deg,
+							#ffffff -1.73%,
+							rgba(255, 255, 255, 0) 30%
+						);
+						top: 0px;
+						right: 0px;
+						left: 0px;
+						bottom: 0px;
+						width: 100%;
+						height: 100%;
+					}
+				}
+			}
+
+			.district-preview__title {
+				font-family: "Noto Sans";
+				font-style: normal;
+				font-weight: 700;
+				font-size: 23px;
+				line-height: 32px;
+				text-align: center;
+				color: $black-color;
+				margin-bottom: 20px;
+			}
+
+			.district-preview__see-all > a {
+				display: flex;
+				justify-content: space-between;
+				text-decoration: none;
+
+				span {
+					font-family: "Noto Sans";
+					font-style: normal;
+					font-weight: 500;
+					font-size: 12px;
+					line-height: 16px;
+					color: $black60-color;
+					display: block;
+				}
+
+				svg {
+					display: block;
+					max-width: 10px;
+					max-height: 10px;
+					height: 100%;
+					width: 100%;
+				}
+			}
+
+			.district-preview__caption {
+				font-family: "Noto Sans";
+				font-style: normal;
+				font-weight: 700;
+				font-size: 16px;
+				line-height: 23px;
+				color: $black-color;
+				text-align: left;
+				display: block;
+				margin-bottom: 15px;
+			}
+		}
+
+		&:last-child {
+			border-left: 1px solid $blue-color;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.your-district .district-preview .district-item.active {
+		min-width: unset;
+	}
+}
+
+.district-preview {
+	.slick-dots {
+		position: static;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		margin-top: 10px;
+
+		& > li {
+			background: $black20-color;
+			height: 5px;
+			width: 5px;
+			border-radius: 2.5px;
+
+			button {
+				height: 100%;
+				width: 100%;
+				padding: 0px;
+				&:before {
+					content: none;
+				}
+			}
+
+			&:first-child {
+				margin-left: 0px;
+			}
+
+			&:last-child {
+				margin-right: 0px;
+			}
+
+			&.slick-active {
+				width: 10px;
+				height: 10px;
+				background: $blue-color;
+				box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			}
+		}
+	}
+}

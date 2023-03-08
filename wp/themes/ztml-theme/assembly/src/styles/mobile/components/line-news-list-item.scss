@@ -1,0 +1,29 @@
+@media (max-width: 768px) {
+	.ta-list {
+		padding: 0 20px;
+	}
+}
+
+@media (max-width: 920px) {
+	.ta-list {
+		.line-regular-news {
+			flex-direction: column;
+
+			.image {
+				display: flex;
+				width: 100%;
+				max-width: 100%;
+				max-height: 250px;
+				min-height: 250px;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+	}
+
+	.category-select-slider {
+		.slider-container.slick-slider {
+			padding: 0px 20px;
+		}
+	}
+}

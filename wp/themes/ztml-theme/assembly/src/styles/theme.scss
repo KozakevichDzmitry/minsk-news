@@ -1,0 +1,89 @@
+// colors
+
+$black-color: #101010;
+$black20-color: rgb(16, 16, 16, 0.2);
+$black60-color: rgb(16, 16, 16, 0.6);
+$white-color: #ffffff;
+$white-light: #f2f2f2;
+$white20-color: rgb(255, 255, 255, 0.2);
+$blue-color: #214972;
+$blue60-color: rgb(33, 73, 114, 0.6);
+$blue60-color: rgb(33, 73, 114, 0.6);
+$red-color: #d91e23;
+$red60-color: rgb(217, 30, 35, 0.6);
+
+// fonts
+
+@mixin font-h1 {
+	font-family: "Noto Sans", sans-serif;
+	font-weight: 900;
+	font-size: 30px;
+}
+
+@mixin font-h2 {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 23px;
+	font-weight: 900;
+}
+
+@mixin font-h2-4 {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 23px;
+	font-weight: 900;
+}
+
+@mixin font-h4 {
+	font-family: "Noto Sans", sans-serif;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 23px;
+}
+
+@mixin font-h5 {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 23px;
+}
+
+@mixin font-h6 {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+}
+
+@mixin font-t1 {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 23px;
+}
+
+@mixin font-t2 {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 23px;
+}
+
+@mixin font-t3 {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 20px;
+}
+
+@mixin font-t4 {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+@mixin font-t5 {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 10px;
+	font-weight: 500;
+	line-height: 15px;
+}

@@ -1,0 +1,398 @@
+.appeal {
+	.main-content {
+		.topic-bar {
+			width: 100%;
+			.action {
+				display: none;
+			}
+			.topic-bar__container {
+				width: 75%;
+			}
+		}
+	}
+	&__content {
+		margin-top: 30px;
+
+		font-family: "Noto Sans";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 23px;
+		color: $black-color;
+
+		margin-bottom: 30px;
+
+		p:not(:last-child) {
+			margin-bottom: 15px;
+		}
+	}
+
+	.appeal__form {
+		.appeal-form__title {
+			font-family: "Noto Sans";
+			font-style: normal;
+			font-weight: 700;
+			font-size: 23px;
+			line-height: 20px;
+			color: #101010;
+			margin-bottom: 30px;
+			display: block;
+		}
+
+		.appeal-form__form-field.file {
+			align-items: center;
+			margin: 25px 0px;
+		}
+
+		.appeal-form__form-field {
+			margin-bottom: 15px;
+
+			display: flex;
+			align-items: baseline;
+			justify-content: space-between;
+
+			.form-field__caption {
+				font-family: "Noto Sans";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 23px;
+				color: #101010;
+				align-items: center;
+
+				width: 40%;
+
+				&.required span::after {
+					content: "*";
+					color: $red-color;
+					margin-left: 3px;
+				}
+
+				.form-field__caption-info {
+					display: block;
+					margin-top: -12px;
+
+					font-family: "Noto Sans";
+					font-style: normal;
+					font-weight: 400;
+					font-size: 10px;
+					line-height: 15px;
+					color: $black60-color;
+				}
+			}
+			textarea {
+				color: $black-color !important;
+			}
+			input[type="text"] {
+				color: $black-color !important;
+			}
+			input[type="email"] {
+				color: $black-color !important;
+			}
+			input[type="tel"] {
+				color: $black-color !important;
+			}
+			input[type="file"] {
+				//color: transparent;
+			}
+			input[type="file"]::-webkit-file-upload-button {
+				//visibility: hidden;
+			}
+
+
+
+			.input-file {
+				position: relative;
+				display: inline-block;
+			}
+			.input-file-btn {
+				position: relative;
+				display: inline-block;
+				cursor: pointer;
+				outline: none;
+				text-decoration: none;
+				vertical-align: middle;
+				text-align: center;
+				padding: 10px 20px;
+				background: $white-color;
+				border: 2px solid $blue-color;
+				border-radius: 5px;
+				font-family: "Noto Sans", serif;
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 23px;
+				color: $black-color;
+				width: fit-content;
+
+			}
+			.input-file-text {
+				padding: 0 10px;
+				line-height: 40px;
+				display: inline-block;
+			}
+			.input-file input[type=file] {
+				position: absolute;
+				z-index: -1;
+				opacity: 0;
+				display: block;
+				width: 0;
+				height: 0;
+			}
+
+			/* Focus */
+			.input-file input[type=file]:focus + .input-file-btn {
+				box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+			}
+
+			/* Hover/active */
+			.input-file:hover .input-file-btn {
+				box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+			}
+
+			.input-wrapper {
+				width: 80%;
+
+				&.wpcf7-not-valid span, input::after {
+					content: '';
+				}
+				
+			}
+
+
+			.input-wrapper br {
+				display: none;
+			}
+
+			.input-wrapper__info {
+				margin-top: 5px;
+				display: block;
+			}
+
+			.input-wrapper input:not(input[type="file"]) {
+				display: block;
+				margin-left: auto;
+				background: #ffffff;
+				border: 2px solid rgba(33, 73, 114, 0.6);
+				box-sizing: border-box;
+				border-radius: 5px;
+
+				padding: 10px;
+
+				max-width: 590px;
+				width: 100%;
+
+				font-family: "Noto Sans";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 23px;
+				color: rgba(16, 16, 16, 0.2);
+			}
+
+			.input-wrapper textarea {
+				min-height: 190px;
+				height: 190px;
+				display: block;
+				margin-left: auto;
+				background: #ffffff;
+				border: 2px solid rgba(33, 73, 114, 0.6);
+				box-sizing: border-box;
+				border-radius: 5px;
+
+				padding: 10px;
+
+				max-width: 590px;
+				width: 100%;
+
+				font-family: "Noto Sans";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 23px;
+				color: rgba(16, 16, 16, 0.2);
+
+				resize: vertical;
+			}
+		}
+
+		.appeal-form__form-field.textarea {
+			align-items: flex-start;
+
+			.form-field__caption {
+				margin-top: 11px;
+			}
+		}
+
+		.appeal-form__submit {
+			margin-top: 30px;
+
+			.wpcf7-submit {
+				display: block;
+				width: fit-content;
+				margin: 0px auto;
+				font-family: "Noto Sans";
+				font-style: normal;
+				font-weight: 700;
+				font-size: 16px;
+				line-height: 23px;
+				text-align: center;
+				color: #ffffff;
+				padding: 10px 25px;
+				background: $blue-color;
+				box-shadow: 0px 4px 4px rgba(40, 54, 90, 0.25);
+				border-radius: 5px;
+			}
+			.wpcf7-spinner {
+				display: none;
+			}
+		}
+	}
+}
+
+.codedropz-upload-inner {
+	h3, span{
+		display: none;
+	}
+	.codedropz-btn-wrap {
+		a.cd-upload-btn {
+			color: $black-color;
+		}
+	} 
+}
+
+.dnd-upload-details {
+	background: $white-color;
+	border: 2px solid rgba(33, 73, 114, 0.6);
+	width: 100% !important;
+	padding: 6px 4px;
+	margin-left: 10px !important;
+	border-radius: 5px;
+	.remove-file {
+		span:after {
+			width: 20px !important;
+			height: 20px !important;
+			margin: 2px 6px;
+		}
+	}
+}
+
+.dnd-upload-image{
+	display: none;
+}
+
+.dnd-upload-status .dnd-upload-details 
+
+.dnd-upload-status .dnd-upload-image {
+    display: none;
+}
+
+.codedropz-upload-handler {
+	content: "Выбрать файл";
+    background: #ffffff;
+    border: 2px solid #214972;
+    border-radius: 5px;
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    color: #101010;
+    display: block;
+    width: fit-content;
+	outline: none;
+	margin: 20px 10px !important;
+
+	.dnd-upload-counter {
+		display: none;
+	}
+}
+
+.codedropz-upload-container {
+	padding: 10px 20px;
+}
+
+@media (max-width: 1024px) {
+	.appeal {
+		.main-content {
+			.appeal__form {
+				.appeal-form__form-field {
+					flex-direction: column;
+
+					.form-field__caption {
+						display: block;
+						margin-bottom: 10px;
+						width: 100%;
+					}
+
+					.input-wrapper {
+						width: 100%;
+
+						input,
+						textarea {
+							max-width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.appeal {
+		.main-container.container {
+			padding: 0;
+			.content-wrapper {
+				width: 100%;
+			}
+		}
+
+		.topic-bar {
+			.topic-bar__container {
+				padding: 0 20px;
+			}
+		}
+
+		.appeal__content {
+			margin: 0 20px;
+		}
+
+		.appeal__form {
+			padding: 0 20px;
+			.appeal-form__form-field {
+				.input-wrapper {
+					input:not(input[type="file"]) {
+						margin-left: 0;
+					}
+					.input-wrapper__info {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	.appeal
+		.appeal__form
+		.appeal-form__form-field
+		.input-wrapper
+		input:not(input[type="file"]) {
+		max-width: 100%;
+	}
+	.appeal .appeal__form .appeal-form__submit .wpcf7-submit {
+		margin-bottom: 4%;
+	}
+}
+
+@media (max-width: 576px) {
+	.appeal {
+		.topic-bar {
+			.topic-bar__container {
+				.topic-bar__title {
+					font-size: 23px;
+					line-height: 1.36em;
+				}
+			}
+		}
+	}
+}

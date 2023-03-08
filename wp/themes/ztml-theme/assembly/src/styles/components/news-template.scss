@@ -1,0 +1,81 @@
+.news-template {
+	border-bottom: 1px solid rgba(35, 52, 69, 0.4);
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+
+	&__header {
+		margin-bottom: 5px;
+		display: flex;
+		align-items: center;
+		gap: 5px;
+
+		.content-exist {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+
+			svg {
+				max-height: 10px;
+				max-width: 10px;
+				height: 100%;
+				width: 100%;
+			}
+		}
+
+		.cat {
+			font-family: "Noto Sans";
+			font-style: normal;
+			font-weight: 500;
+			font-size: 12px;
+			line-height: 20px;
+			color: $black60-color;
+		}
+	}
+
+	&__title {
+		font-family: "Noto Sans";
+		font-style: normal;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 23px;
+		color: $black-color;
+		max-height: 95px;
+		overflow: hidden;
+		margin-bottom: 10px;
+	}
+
+	&__info {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.left-info {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+
+			.time {
+				font-family: "Noto Sans";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 12px;
+				line-height: 20px;
+				color: $black60-color;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+
+				span {
+					display: block;
+				}
+			}
+		}
+
+		.share-link {
+			svg {
+				width: 14px;
+				height: 10px;
+			}
+		}
+	}
+}

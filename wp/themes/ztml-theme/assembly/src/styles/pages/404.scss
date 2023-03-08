@@ -1,0 +1,36 @@
+.error404 {
+	.td-404-title {
+		font-family: roboto, sans-serif;
+		font-size: 40px;
+		color: #222;
+		text-align: center;
+		line-height: 50px;
+		margin: 50px 0 17px;
+	}
+	.td-404-sub-title {
+		font-family: roboto, sans-serif;
+		font-size: 21px;
+		line-height: 24px;
+		color: #a6a6a6;
+		text-align: center;
+		margin: 0 0 40px;
+	}
+	.td-404-sub-sub-title {
+		text-align: center;
+		margin-bottom: 70px !important;
+
+		a {
+			cursor: pointer;
+			background: #214972;
+			box-shadow: 2px 2px 4px rgb(0 0 0 / 25%), -2px -2px 4px rgb(0 0 0 / 25%);
+			font-family: "Roboto";
+			font-style: normal;
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 25px;
+			color: #ffffff;
+			padding: 10px;
+			margin-left: 10px;
+		}
+	}
+}

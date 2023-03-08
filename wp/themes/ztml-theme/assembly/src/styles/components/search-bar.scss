@@ -1,0 +1,126 @@
+.header__search-bar {
+	display: none;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: $white-color;
+
+	&.active {
+		display: block;
+	}
+
+	.header__search-bar-wrapper {
+		padding: 2em;
+		font-size: 1.67rem;
+
+		.header__search {
+			position: relative;
+			padding-right: 4.5em;
+
+			.asl_w_container.asl_w_container_1 {
+				border: 1px solid $blue-color;
+				border-radius: 5px;
+
+				#ajaxsearchlite1 {
+					background: $white-color;
+
+					.probox {
+						background: none;
+						background-image: none;
+
+						.promagnifier {
+							background: none;
+							background-image: none;
+
+							svg {
+								max-height: 30px;
+								min-width: 30px;
+								height: 100%;
+								width: 100%;
+							}
+						}
+
+						.proinput {
+							.orig {
+								font-family: "Montserrat";
+								font-style: normal;
+								font-weight: 400;
+								font-size: 20px !important;
+								line-height: 24px;
+								color: $black-color;
+
+								&::placeholder {
+									color: rgba(16, 16, 16, 0.2) !important;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.search-btn-close {
+				position: absolute;
+				top: 50%;
+				right: 0;
+				transform: translateY(-50%);
+				line-height: 0;
+
+				& svg {
+					max-width: 2.5em;
+					max-height: 2.5em;
+				}
+			}
+		}
+
+		.header__search-info {
+			padding-left: 2em;
+			font-family: "Montserrat", sans-serif;
+			font-style: normal;
+			font-weight: 400;
+			font-size: 0.83rem;
+			line-height: 1.2em;
+			color: rgba(16, 16, 16, 0.6);
+		}
+	}
+}
+
+div.asl_m.asl_w {
+	padding: 0.75em 1em 0.75em 0;
+}
+
+#ajaxsearchlite1 .probox .proinput input,
+div.asl_w .probox .proinput input {
+	font-size: 1.67rem;
+}
+
+div.asl_m .probox .promagnifier .innericon svg,
+div.asl_m .probox .prosettings .innericon svg,
+div.asl_m .probox .proloading svg {
+	width: 1.5em;
+}
+div.asl_m .probox .proloading div.asl_simple-circle{
+	border: 4px solid #214972
+}
+
+@media (max-width: 590px) {
+	.header__search-bar {
+		.header__search-bar-wrapper {
+			font-size: 1.33rem;
+
+			.header__search {
+				padding-right: 2.5em;
+				.search-btn-close {
+					& svg {
+						max-width: 1.4em;
+						max-height: 1.4em;
+					}
+				}
+			}
+		}
+	}
+	#ajaxsearchlite1 .probox .proinput input,
+	div.asl_w .probox .proinput input {
+		font-size: 1.2rem !important;
+	}
+}

@@ -1,0 +1,132 @@
+.pdf-attachments {
+	display: flex;
+	gap: 15px;
+	margin-bottom: 30px;
+
+	padding: 10px;
+	background-color: $white-color;
+	box-shadow: 0px 3px 4px rgba(125, 125, 125, 0.25),
+		0px -3px 4px rgba(125, 125, 125, 0.1);
+	flex-wrap: wrap;
+
+	.pdf-attachments-item {
+		width: calc(33.3333333333% - 10px);
+
+		&__view-link {
+			display: block;
+			text-decoration: none;
+
+			h3 {
+				display: block;
+				font-family: "Noto Sans", sans-serif;
+				font-style: normal;
+				font-weight: 400 !important;
+				font-size: 14px !important;
+				line-height: 22px;
+				color: #101010;
+				margin: 0px 0px 10px 0px;
+			}
+		}
+
+		&__image-container {
+			margin-bottom: 10px;
+			overflow: hidden;
+		}
+
+		&__image {
+			display: block;
+			max-height: 210px;
+			width: 100%;
+			object-fit: cover;
+			transition: -webkit-transform 0.2s ease-out;
+			transition: transform 0.2s ease-out;
+			transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
+
+			&:hover {
+				-webkit-transform: scale(1.1);
+				-ms-transform: scale(1.1);
+				transform: scale(1.1);
+			}
+		}
+
+		&__download-link {
+			display: block;
+			font-family: "Noto Sans", sans-serif;
+			font-style: normal;
+			font-weight: 400 !important;
+			font-size: 12px !important;
+			line-height: 16px;
+			color: $black60-color;
+			text-decoration: none;
+		}
+	}
+}
+
+.content-wrapper div:last-child {
+	margin: 0px;
+}
+
+@media (max-width: 576px) {
+	.pdf-attachments {
+		flex-direction: column;
+		background-color: $white-color;
+		box-shadow: none;
+		padding: 0px;
+		gap: 10px;
+
+		.pdf-attachments-item {
+			width: 100%;
+			padding: 10px;
+			box-shadow: 0px 3px 4px rgba(125, 125, 125, 0.25),
+				0px -3px 4px rgba(125, 125, 125, 0.1);
+		}
+	}
+}
+
+@media (max-width: 860px) {
+	.pdf-attachments.three {
+		flex-direction: column;
+		box-shadow: none;
+		background: none;
+		padding: 0px 20px;
+		margin-bottom: 0px;
+		padding-bottom: 30px;
+
+		.pdf-attachments-item {
+			background: none;
+			box-shadow: 0px 3px 4px rgba(125, 125, 125, 0.25),
+				0px -3px 4px rgba(125, 125, 125, 0.1);
+			max-width: 300px;
+
+			.pdf-attachments-item__view-link {
+				padding: 10px 10px 0px 10px;
+				background: $white-color;
+
+				h3 {
+					margin: 0px;
+					padding-bottom: 10px;
+				}
+			}
+			.pdf-attachments-item__download-link {
+				padding: 0px 10px 10px 10px;
+				background: $white-color;
+			}
+			.pdf-attachments-item__image-container {
+				margin-bottom: 0px;
+				padding-bottom: 10px;
+			}
+		}
+	}
+}
+
+@media (min-width: 769px) and (max-width: 860px) {
+	.pdf-attachments.three {
+		flex-direction: column;
+		padding: 0px;
+		margin-bottom: 30px;
+
+		.pdf-attachments-item {
+			width: 100%;
+		}
+	}
+}

@@ -1,0 +1,445 @@
+.about {
+	.main-content {
+		img.border {
+			min-height: 320px;
+			object-fit: contain;
+		}
+		.about-content {
+			.block-title {
+				font-family: "Noto Sans";
+				font-style: normal;
+				font-weight: 700;
+				font-size: 23px;
+				line-height: 31px;
+				color: $black-color;
+			}
+
+			&__text {
+				font-family: "Noto Sans";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 23px;
+				color: #101010;
+			}
+
+			.holding {
+				padding: 10px;
+				background: $white-color;
+				box-shadow: 0px 3px 4px rgba(125, 125, 125, 0.25),
+					0px -3px 4px rgba(125, 125, 125, 0.1);
+				width: fit-content;
+				max-width: 100%;
+				margin: 0px auto;
+				margin-top: 30px;
+				margin-bottom: 30px;
+				transition: 0.3s;
+
+				&:hover {
+					transform: translateY(-5px);
+				}
+
+				img {
+					width: 100%;
+				}
+			}
+
+			.socials-links {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin: 30px 0px;
+
+				svg {
+					max-width: 60px;
+					max-height: 60px;
+					height: 100%;
+					width: 100%;
+				}
+				a {
+					pointer-events: auto;
+
+				}
+			}
+
+			.outline-btn {
+				pointer-events: auto;
+				display: block;
+				width: fit-content;
+				font-family: "Noto Sans";
+				font-style: normal;
+				font-weight: 700;
+				font-size: 14px;
+				line-height: 19px;
+				color: $blue-color;
+				text-align: center;
+				text-decoration: none;
+				border: 2px solid $blue-color;
+				box-sizing: border-box;
+				border-radius: 5px;
+				padding: 10px 20px;
+				margin: 0px auto;
+				margin-top: 30px;
+				margin-bottom: 15px;
+				&:hover{
+					color: $white-color;
+				}
+				&:focus{
+					border: 2px solid #9CB8D3;
+				}
+			}
+
+			.policy-link {
+				display: block;
+				text-align: center;
+				font-family: "Noto Sans";
+				font-style: normal;
+				font-weight: 700;
+				font-size: 16px;
+				line-height: 23px;
+				text-align: center;
+				color: $blue-color;
+				margin-bottom: 30px;
+				pointer-events: auto;
+			}
+
+			.info {
+				display: grid;
+				align-items: center;
+				grid-template-columns: 1fr 1fr;
+				margin-bottom: 30px;
+
+				.card {
+					justify-content: space-evenly;
+					height: 100%;
+					align-items: center;
+
+					@media (max-width: 1024px) {
+						width: 90%;
+					}
+
+					&__content {
+						width: auto;
+						height: 100%;
+
+						ul {
+							li {
+								margin: 0px;
+								&:not(:last-child) {
+									margin-bottom: 15px;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.metrics {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				column-gap: 30px;
+				row-gap: 65px;
+				margin: 30px 0px;
+
+				@media (max-width: 1024px) {
+					column-gap: 1%;
+					row-gap: 10%;
+				}
+
+				@media (max-width: 920px) {
+					grid-template-columns: 1fr;
+					row-gap: 20px;
+				}
+
+				.card {
+					width: 75%;
+
+					transition: 0.3s;
+
+					@media (max-width: 1024px) {
+						width: 90%;
+					}
+
+					@media (max-width: 920px) {
+					}
+
+					&:hover {
+						transform: translateY(-5px);
+					}
+
+					&__title {
+						font-family: "Noto Sans";
+						font-style: normal;
+						font-weight: 700;
+						font-size: 30px;
+						line-height: 41px;
+						color: $black-color;
+						text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+					}
+
+					&__icon svg {
+						max-width: 60px;
+						max-height: 60px;
+						width: 100%;
+						height: 100%;
+					}
+				}
+			}
+
+			.radio-freq-list {
+				padding: 0px;
+			}
+
+			.card {
+				box-shadow: 0px 3px 4px rgba(125, 125, 125, 0.25),
+					0px -3px 4px rgba(125, 125, 125, 0.1);
+				height: 100%;
+				width: fit-content;
+				display: flex;
+				background-color: $white-color;
+				padding: 10px 20px;
+				gap: 20px;
+				align-items: center;
+				margin: 0px auto;
+				width: 80%;
+				max-width: 100%;
+
+				&__icon svg {
+					max-width: 50px;
+					max-height: 50px;
+					width: 100%;
+					height: 100%;
+				}
+
+				&__icon img {
+					max-width: 50px;
+					max-height: 50px;
+					width: 100%;
+					height: 100%;
+				}
+
+				&__title {
+					font-family: "Noto Sans";
+					font-style: normal;
+					font-weight: 700;
+					font-size: 23px;
+					line-height: 32px;
+					color: $black-color;
+					display: block;
+					margin-bottom: 10px;
+				}
+
+				&__text {
+					font-family: "Noto Sans";
+					font-style: normal;
+					font-weight: 400;
+					font-size: 16px;
+					line-height: 23px;
+					color: $black-color;
+					display: block;
+				}
+
+				&__list {
+					list-style: square;
+					padding-left: 20px;
+
+					li {
+						a {
+							font-family: "Noto Sans";
+							font-style: normal;
+							font-weight: 400;
+							font-size: 16px;
+							line-height: 23px;
+							display: block;
+						}
+
+						&::marker {
+							color: $blue-color;
+							height: 5px;
+							width: 5px;
+						}
+					}
+				}
+			}
+
+			.radio-freq-list {
+				display: flex;
+				gap: 10px;
+				margin-bottom: 35px;
+				margin-top: 20px;
+
+				.radio-freq-list__item {
+					width: calc(100% / 5);
+					display: flex;
+					align-items: center;
+					justify-content: space-evenly;
+					gap: 3px;
+					padding: 15px;
+					background: $white-color;
+					box-shadow: 0px 3px 4px rgba(125, 125, 125, 0.25),
+						0px -3px 4px rgba(125, 125, 125, 0.1);
+
+					transition: 0.3s;
+
+					&:hover {
+						transform: translateY(-5px);
+					}
+
+					svg {
+						max-width: 20px;
+					}
+
+					.radio-freq-item__city {
+						font-family: "Noto Sans";
+						font-style: normal;
+						font-weight: 400;
+						font-size: 16px;
+						line-height: 23px;
+						color: $black-color;
+					}
+
+					.radio-freq-item__freq {
+						font-family: "Noto Sans";
+						font-style: normal;
+						font-weight: 700;
+						font-size: 16px;
+						line-height: 23px;
+						color: $red-color;
+					}
+				}
+			}
+		}
+	}
+
+	.card__content {
+		width: 100%;
+		ul {
+			margin: 0px;
+			padding: 0px;
+			margin-left: 20px;
+
+			a {
+				font-family: "Noto Sans";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 23px;
+				text-decoration-line: none;
+				color: #101010;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+
+.page-content img.border {
+	display: block;
+	transition: 0.3s;
+	&:hover {
+		transform: translateY(-5px);
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.about .main-content .about-content .socials-links {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		row-gap: 30px;
+	}
+
+	.about .main-content .about-content .socials-links svg {
+		margin: 0 auto;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.about .main-content .about-content .metrics {
+		grid-template-columns: 1fr;
+		row-gap: 30px;
+	}
+
+	.about .main-content .about-content .metrics .card {
+		height: 114px;
+	}
+
+	.about .main-content .about-content .card {
+		width: 100% !important;
+		align-items: flex-start !important;
+		min-height: 121px;
+	}
+
+	.about .main-content .about-content .card__icon {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		width: 60px;
+		justify-content: flex-start;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.about .main-content .about-content .radio-freq-list {
+		flex-direction: column;
+	}
+
+	.about .appeal__content,
+	.about .about-content {
+		padding: 0px 20px;
+	}
+
+	.radio-freq-list .radio-freq-list__item {
+		flex: 0 0 100%;
+		width: 100%;
+		max-width: 170px;
+		width: 100% !important;
+		margin: 0 auto;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+	.about .main-content .about-content .socials-links {
+		gap: 30px;
+	}
+}
+
+@media (max-width: 920px) {
+	.about .main-content .about-content .info {
+		gap: 10px;
+		.card {
+			width: 100%;
+		}
+	}
+}
+
+@media (max-width: 620px) {
+	.about .main-content .about-content .info {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 1060px) {
+	.about .main-content .about-content .radio-freq-list {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+
+		&__item {
+			width: 100% !important;
+			margin: 0px;
+			height: 60px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.about .main-content .about-content .radio-freq-list {
+		display: grid;
+		grid-template-columns: 1fr;
+
+		&__item {
+			margin: 0px auto;
+		}
+	}
+}

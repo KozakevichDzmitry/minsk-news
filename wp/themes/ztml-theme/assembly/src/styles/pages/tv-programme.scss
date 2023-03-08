@@ -1,0 +1,355 @@
+.tv-programme {
+	&__title {
+		font-family: "Noto Sans";
+		font-style: normal;
+		font-weight: 700;
+		font-size: 23px;
+		line-height: 32px;
+		color: $black-color;
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	.tv-programme_container {
+		p {
+			font-family: "Noto Sans";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 23px;
+			color: $black-color;
+
+			&:first-child {
+				margin-top: 30px;
+			}
+			&:not(:last-child) {
+				margin-bottom: 15px;
+			}
+			&:last-child {
+				margin-bottom: 30px;
+			}
+		}
+	}
+
+	&__text {
+		font-family: "Noto Sans";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 23px;
+		color: $black-color;
+
+		&:first-child {
+			margin-top: 30px;
+		}
+		&:not(:last-child) {
+			margin-bottom: 15px;
+		}
+		&:last-child {
+			margin-bottom: 30px;
+		}
+	}
+
+	.tv-controls {
+		margin-top: 35px;
+		margin-bottom: 30px;
+		display: flex;
+		justify-content: space-between;
+
+		&__day-select ul {
+			display: flex;
+			align-items: center;
+			gap: 20px;
+
+			.slick-dots {
+				bottom: unset;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 13px;
+				margin-top: 20px;
+
+				li {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					margin: 0px !important;
+
+					height: 5px;
+					width: 5px;
+
+					button {
+						color: transparent;
+						padding: 0px;
+						margin: 0px !important;
+						height: 5px;
+						width: 5px;
+						background-color: $black60-color;
+						border-radius: 2px;
+						margin: 0px auto;
+
+						&:before {
+							content: none;
+						}
+					}
+
+					&.slick-active {
+						height: 10px;
+						width: 10px;
+						button {
+							margin: 0px;
+							height: 10px;
+							width: 10px;
+							background-color: $blue60-color;
+							border-radius: 2px;
+						}
+					}
+				}
+			}
+		}
+
+		.select-channel {
+			z-index: 10;
+			button {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 5px;
+				padding: 10px 5px;
+				position: relative;
+			}
+
+			button::after {
+				content: "";
+				background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 7L5 1L1 7' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				display: block;
+				height: 10px;
+				width: 10px;
+				transform: rotateZ(180deg);
+			}
+
+			button:hover::after {
+				transform: rotateZ(0deg);
+			}
+
+			&__menu {
+				position: relative;
+				padding: 10px 0px;
+
+				.channels-list {
+					display: none;
+					position: absolute;
+					right: 0;
+					padding: 10px;
+					background: $white-color;
+					border: 1px solid rgba(33, 73, 114, 0.6);
+					box-sizing: border-box;
+					box-shadow: 0px 4px 4px rgba(134, 134, 134, 0.4),
+						0px -1px 4px rgba(134, 134, 134, 0.1);
+					border-radius: 5px;
+					max-height: 450px;
+					overflow: hidden;
+					overflow-y: auto;
+
+					&__item {
+						font-family: "Noto Sans";
+						font-style: normal;
+						font-weight: 700;
+						font-size: 16px;
+						line-height: 23px;
+						color: $black-color;
+
+						display: flex;
+						align-items: center;
+						gap: 5px;
+
+						cursor: pointer;
+
+						&:not(:last-child) {
+							margin-bottom: 5px;
+						}
+
+						&:hover {
+							color: $blue-color;
+						}
+
+						&::before {
+							content: "";
+							display: block;
+							height: 2px;
+							width: 10px;
+							background-color: $blue-color;
+							display: none;
+						}
+
+						&:hover::before {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+
+		button.selected {
+			height: 47px;
+		}
+
+		.select-channel:hover .select-channel__menu > .channels-list {
+			display: block;
+		}
+
+		button {
+			font-family: "Noto Sans", sans-serif;
+			font-style: normal;
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 23px;
+			color: #ffffff;
+			padding: 10px 20px;
+			background: #214972;
+			box-shadow: 0px 3px 4px rgb(125 125 125 / 25%),
+				0px -3px 4px rgb(125 125 125 / 10%);
+			border-radius: 5px;
+
+			&.no-selected {
+				background: rgba(33, 73, 114, 0.6);
+				font-size: 14px;
+				line-height: 22px;
+			}
+		}
+	}
+}
+
+@media (max-width: 1180px) {
+	.tv-programme .tv-controls .day-select-list button {
+		padding: 10px 15px;
+	}
+}
+
+@media (max-width: 1170px) {
+	.tv-programme .tv-controls__day-select ul {
+		gap: 2%;
+	}
+}
+
+@media (max-width: 1110px) {
+	.tv-controls {
+		&__day-select ul {
+			gap: 1% !important;
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 886px) {
+	.tv-programme .tv-controls .day-select-list button {
+		padding: 10px 10px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1050px) {
+	.tv-programme .tv-controls button {
+		font-size: 1.2vw !important;
+		padding: 10px;
+	}
+}
+
+// @media(max-width: 768px) {
+// 	.tv-programm-list, .tv-programme__title, .tv-programme_container{
+// 		padding: 0px 20px;
+// 	}
+// }
+
+@media (max-width: 715px) {
+	.tv-programme .tv-controls {
+		flex-direction: column;
+		gap: 20px;
+		align-items: center;
+	}
+	.tv-programme .tv-controls .tv-controls__day-select,
+	.tv-programme .tv-controls .day-select-list {
+		width: 100%;
+	}
+	.tv-programme .tv-controls .day-select-list {
+		justify-content: space-evenly;
+	}
+	.tv-programme .tv-controls .day-select-list button {
+		padding: 10px 20px;
+	}
+	.tv-programme .tv-controls .select-channel button {
+		padding: 10px 30px;
+		gap: 10px;
+	}
+}
+
+@media (max-width: 670px) {
+	.tv-controls__day-select ul {
+		.day-select-item.slick-slide button {
+			width: 100%;
+		}
+
+		.slick-track {
+			display: flex;
+			gap: 20px;
+			min-height: auto;
+		}
+		.slick-dots {
+			position: absolute;
+			bottom: -68% !important;
+		}
+	}
+	.tv-programm-list-wrap {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 480px) {
+	.tv-programm-list-wrap {
+		flex-direction: column !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.main-content {
+		margin-bottom: 30px;
+	}
+}
+
+.tv-programme .tv-controls {
+	.day-select-list {
+		.day-select-item button {
+			transition: -webkit-transform 0.2s ease-out;
+			transition: all 0.2s ease-out;
+			transition: all 0.2s ease-out, -webkit-transform 0.2s ease-out;
+
+			&.no-selected {
+				&:hover {
+					background: $blue-color;
+				}
+				&:active {
+					font-size: 16px;
+					line-height: 23px;
+					background: $blue-color;
+				}
+			}
+		}
+	}
+
+	.select-channel {
+		button {
+			transition: -webkit-transform 0.2s ease-out;
+			transition: all 0.2s ease-out;
+			transition: all 0.2s ease-out, -webkit-transform 0.2s ease-out;
+
+			&:hover {
+				background: #2b5e92;
+			}
+			&:active {
+				background: #9cb8d3;
+			}
+		}
+	}
+}

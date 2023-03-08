@@ -1,0 +1,39 @@
+@media (max-width: 768px) {
+  footer {
+    > .container {
+      padding: 30px 20px 24px;
+    }
+
+    .footer__logo {
+      max-width: 290px;
+      margin: 0 auto 7px;
+    }
+
+    br {
+      display: initial;
+    }
+
+    .footer {
+      &__title {
+        margin-bottom: 17px;
+      }
+
+      &__content {
+        gap: 24px;
+
+        > div:last-child {
+          max-width: 280px;
+        }
+      }
+
+      &__advertising {
+        margin-bottom: 16px;
+      }
+
+      &__advertising-btn {
+        max-width: 180px;
+        padding: 8px 1%;
+      }
+    }
+  }
+}

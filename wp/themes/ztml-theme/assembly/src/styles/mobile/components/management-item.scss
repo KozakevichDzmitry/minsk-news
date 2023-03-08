@@ -1,0 +1,59 @@
+.only-mobile {
+  display: none;
+}
+@media (max-width: 768px) {
+  .managment-list {
+    padding: 0 20px;
+
+    .management-item {
+      .info {
+        // padding: 0;
+        &__field {
+          // line-height: 1.2;
+          .name,
+          .role {
+            line-height: 32px;
+          }
+
+          &:not(:last-child) {
+            margin-bottom: 3px;
+
+            .text {}
+          }
+
+          &:nth-of-type(3) {
+            max-height: 191px;
+            overflow: hidden;
+            display: flex;
+            position: relative;
+            // background: yellow;
+            &.active {
+              max-height: initial;
+            }
+
+            &:not(.active) {
+              &::after {
+                content: "";
+                position: absolute;
+                background: linear-gradient(360deg, #ffffff 24.27%, rgba(255, 255, 255, 0.3) 100%);
+                width: 100%;
+                bottom: 0;
+                height: 40px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .only-mobile {
+    display: block;
+    padding-bottom: 5px;
+  }
+
+  .text__field {
+    padding: 1px 20px 29px;
+  }
+}
+@media (max-width: 480px) {}

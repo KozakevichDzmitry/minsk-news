@@ -1,0 +1,57 @@
+@media (max-width: 768px) {
+  .district-news {
+   padding: 0px 20px;
+  }
+  .district-preview {
+    padding: 0 22px;
+    margin-bottom: 50px;
+
+    .district-item {
+      display: none; //Не забыть удалить
+
+      &.active {
+        display: flex;
+        border: 1px solid $blue-color;
+        padding: 19px 9px 15px;
+        width: 100%;
+        min-width: initial;
+        height: max-content !important;
+        max-width: 500px;
+        margin: 0 auto;
+        > div {
+          height: 100%;
+        }
+
+        .district-preview__title {
+          margin-bottom: 16px;
+        }
+
+        .content {
+          > img {
+            margin-bottom: -1px;
+          }
+
+          .district-news {
+            margin-bottom: 17px;
+          }
+        }
+
+        .district-preview__caption {
+          margin-bottom: 4px;
+        }
+
+        .district-news {
+          .news-template-line {
+            padding: 5px 0 0;
+            background: none;
+            box-shadow: none;
+
+            .post-info-container {
+              margin-bottom: 6px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+Feb 13 2023 09:18:57
+{"Number":8,"Message":"unserialize(): Error at offset 344 of 3497 bytes","File":"C:\\OSPanel\\domains\\minsk-news\\wp-content\\plugins\\all-in-one-wp-migration-master\\lib\\vendor\\servmask\\database\\class-ai1wm-database-utility.php","Line":60}
+
+Feb 13 2023 09:18:57
+{"Number":8,"Message":"unserialize(): Error at offset 344 of 3606 bytes","File":"C:\\OSPanel\\domains\\minsk-news\\wp-content\\plugins\\all-in-one-wp-migration-master\\lib\\vendor\\servmask\\database\\class-ai1wm-database-utility.php","Line":60}
+
+Mar 07 2023 13:11:48
+{"Number":8,"Message":"unserialize(): Error at offset 344 of 3497 bytes","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration-master\/lib\/vendor\/servmask\/database\/class-ai1wm-database-utility.php","Line":60}
+
+Mar 07 2023 13:11:48
+{"Number":8,"Message":"unserialize(): Error at offset 344 of 3606 bytes","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration-master\/lib\/vendor\/servmask\/database\/class-ai1wm-database-utility.php","Line":60}
+

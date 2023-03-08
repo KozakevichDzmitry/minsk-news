@@ -1,0 +1,107 @@
+.managment-list {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.management-item {
+	display: flex;
+	gap: 30px;
+	padding: 30px;
+	background-color: $white-color;
+	box-shadow: 0px 3px 4px rgba(125, 125, 125, 0.25),
+		0px -3px 4px rgba(125, 125, 125, 0.1);
+	margin-bottom: 30px;
+
+	img {
+		display: block;
+		width: 100%;
+		object-fit: contain;
+	}
+
+	h2,
+	h3 {
+		margin: 0px;
+	}
+
+	.image-wrapper {
+		width: 40%;
+	}
+
+	.info {
+		width: 60%;
+		&__field {
+			.name {
+				font-family: "Noto Sans", sans-serif;
+				font-style: normal;
+				font-weight: 700;
+				font-size: 23px;
+				line-height: 31px;
+				color: $black-color;
+			}
+			.role {
+				font-family: "Noto Sans", sans-serif;
+				font-style: normal;
+				font-weight: 700;
+				font-size: 16px;
+				line-height: 23px;
+				color: $black-color;
+			}
+			.text {
+				font-family: "Noto Sans", sans-serif;
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 23px;
+				color: $black-color;
+			}
+			&:not(:last-child) {
+				margin-bottom: 15px;
+			}
+		}
+	}
+}
+
+.text__field {
+	font-family: "Noto Sans", sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 23px;
+	color: $black-color;
+}
+
+@media (max-width: 576px) {
+	.management-item {
+		flex-direction: column;
+		padding: 10px;
+		gap: 10px;
+
+		img {
+			margin: 0px auto;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.management-item {
+		padding: 10px;
+	}
+}
+
+@media (max-width: 1190px) {
+	.management-item {
+		flex-direction: column;
+		gap: 10px;
+
+		.info,
+		.image-wrapper {
+			width: 100%;
+
+			img {
+				max-height: 295px;
+				object-fit: contain;
+				width: 100%;
+			}
+		}
+	}
+}

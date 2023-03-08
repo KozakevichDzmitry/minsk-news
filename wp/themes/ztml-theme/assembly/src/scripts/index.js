@@ -1,0 +1,8 @@
+import './main.js'
+import './burger-menu.js'
+import './components/timeline.js'
+import './components/ext-player.js'
+import './components/search-bar.js'
+import './components/share-links.js'
+import './components/play-preload-video.js'
+import './components/announce.js'

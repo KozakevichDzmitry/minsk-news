@@ -1,0 +1,144 @@
+#newspapers .main-content {
+	.newspaper__description {
+		font-family: "Noto Sans";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 23px;
+		color: $black-color;
+		margin-bottom: 30px;
+	}
+
+	.newspaper__kacheli-content {
+		margin: 30px 0px;
+		img {
+			max-width: 690px;
+			width: 100%;
+			object-fit: contain;
+			display: block;
+			margin: 0px auto;
+			margin-bottom: 30px;
+		}
+
+		.kacheli-content {
+			&__title {
+				font-family: "Noto Sans";
+				font-style: normal;
+				font-weight: 700;
+				font-size: 23px;
+				line-height: 32px;
+				color: $black-color;
+				margin-bottom: 15px;
+			}
+
+			.list {
+				margin-bottom: 25px;
+
+				.list-caption {
+					font-family: "Noto Sans";
+					font-style: normal;
+					font-weight: 500;
+					font-size: 16px;
+					line-height: 23px;
+					color: $black-color;
+					margin-bottom: 15px;
+				}
+
+				.items-list {
+					padding-left: 50px;
+					list-style: square;
+
+					li {
+						font-family: "Noto Sans";
+						font-style: normal;
+						font-weight: 400;
+						font-size: 16px;
+						line-height: 23px;
+						color: $black-color;
+
+						&:not(:last-child) {
+							margin-bottom: 10px;
+						}
+
+						&::marker {
+							color: $blue-color;
+							height: 5px;
+							width: 5px;
+						}
+					}
+				}
+			}
+
+			.editors-address {
+				font-family: "Noto Sans";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 23px;
+				color: #101010;
+			}
+		}
+	}
+
+	.newspaper__moree-btn {
+		background: $blue-color;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		border-radius: 5px;
+		width: fit-content;
+		margin: 0px auto;
+
+		font-family: "Noto Sans";
+		font-style: normal;
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 23px;
+		color: $white-color;
+		display: block;
+		padding: 10px 25px;
+	}
+
+	.pdf-attachments {
+		padding: 0px;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		row-gap: 30px;
+		column-gap: 0px;
+		background: none;
+		box-shadow: none;
+
+		.pdf-attachments-item {
+			box-shadow: 0px 3px 4px rgba(125, 125, 125, 0.25),
+				0px -3px 4px rgba(125, 125, 125, 0.1);
+			width: 100%;
+			padding: 10px;
+			background-color: $white-color;
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	#newspapers .main-content {
+		.pdf-attachments {
+			grid-template-columns: 1fr;
+			gap: 10px;
+		}
+	}
+}
+
+@media (min-width: 769px) and (max-width: 860px) {
+	#newspapers .main-content .pdf-attachments {
+		grid-template-columns: 1fr 1fr !important;
+	}
+}
+
+@media (max-width: 768px) {
+	#newspapers .main-content {
+		margin-bottom: 30px;
+
+		.pdf-attachments {
+			.pdf-attachments-item {
+				max-width: 100% !important;
+			}
+		}
+	}
+}

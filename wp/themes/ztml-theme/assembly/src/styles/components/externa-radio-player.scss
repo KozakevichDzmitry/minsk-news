@@ -1,0 +1,33 @@
+.erp-scn {
+	padding: 0px !important;
+	.erp-scn__title {
+		font-family: "Noto Sans";
+		font-style: normal;
+		font-weight: 900;
+		font-size: 20px;
+		line-height: 23px;
+		color: #d91e23;
+		text-align: center;
+		text-transform: uppercase;
+
+		span {
+			display: block;
+		}
+		padding: 5px 0px;
+	}
+
+	.erp-scn__player-container {
+		display: flex;
+		justify-content: space-evenly;
+		background: #f2f2f2;
+		padding: 5px;
+
+		.erp-scn__player {
+			width: 100%;
+			background-repeat: no-repeat !important;
+			background-size: contain !important;
+			background-position: center !important;
+			max-width: 180px;
+		}
+	}
+}
