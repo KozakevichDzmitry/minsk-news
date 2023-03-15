@@ -15,3 +15,26 @@
 		}
 	}
 }
+.pdf-archive__link {
+	display: flex;
+	align-items: center;
+	color: #214972;
+	font-size: 12px;
+	line-height: 16px;
+	text-align: right;
+	position: absolute;
+	z-index: 1;
+	right: 0;
+	gap: 10px;
+	text-decoration: none;
+
+	svg {
+		width: 10px;
+		height: 10px;
+	}
+}
+@media screen and (max-width: 767px) {
+	.pdf-archive__link {
+		display: none;
+	}
+}

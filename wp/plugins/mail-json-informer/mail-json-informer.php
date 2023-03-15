@@ -43,7 +43,7 @@ class mail_json_informer
 	{
 		if ( function_exists('add_options_page') ) 
 		{
-			add_options_page( 'Опции MAIL.RU ИНФОРМЕР', 'MAIL.RU ИНФОРМЕР', 8, basename(__FILE__), array (&$this, 'admin_form') );
+			add_options_page( 'Опции MAIL.RU ИНФОРМЕР', 'MAIL.RU ИНФОРМЕР', 'administrator', basename(__FILE__), array (&$this, 'admin_form') );
 		}
 	}
 	

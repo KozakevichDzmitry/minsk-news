@@ -7,9 +7,12 @@ function render_post_topic_bar($post_ID)
 ?>
 	<div class="post-topic-bar">
 		<div class="content-exists">
-			<div class="content-exist">
-				<?php render_content_exist_markers($post_ID); ?>
-			</div>
+            <?php $exist_markers = render_content_exist_markers($post_ID); ?>
+            <?php if($exist_markers): ?>
+                <div class="content-exist">
+                    <?php  echo $exist_markers; ?>
+                </div>
+            <?php endif;?>
 			<div class="tags">
 				<?php
 				$terms = get_the_terms($post_ID, 'news-list');

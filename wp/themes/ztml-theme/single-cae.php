@@ -63,20 +63,17 @@ $newspapers_taxes = get_terms(
 							</span>
 						</div>
 						<div class="share-block--fold">
-							<?php echo do_shortcode('[share_links]'); ?>
+                            <?php echo share_links($post->ID); ?>
 							<?php render_share_icon(); ?>
 						</div>
 					</div>
 				</div>
-
 				<div class="satm-content">
 					<?php the_content(); ?>
 				</div>
-
 				<div class="satm-video">
 					<?php echo carbon_get_post_meta(get_the_ID(), 'crb_youtube_code'); ?>
 				</div>
-
 				<div class="satm-related">
 					<div class="cards-list">
 						<?php foreach ($satms->posts as $post) : ?>

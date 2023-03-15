@@ -15,11 +15,8 @@ import rename from 'gulp-rename'
 
 import importCss from "gulp-import-css"
 import minifyCSS from "gulp-minify-css"
-import webpcss from "gulp-webpcss"
 import autoprefixer from "gulp-autoprefixer"
 import groupCssMediaQueries from "gulp-group-css-media-queries"
-import webHtmlNosvg from "gulp-webp-html-nosvg"
-
 
 import browsersync from "browser-sync"
 import webpack from "webpack";
@@ -53,7 +50,6 @@ const isProd = process.argv.includes('--prod')
 const path = {
     build: {
         files: `${buildFolder}/files/`,
-        html: `${buildFolder}/`,
         css: `${buildFolder}/styles/`,
         js: `${buildFolder}/js`,
         img: `${buildFolder}/images/`,
@@ -62,7 +58,6 @@ const path = {
     },
     src: {
         files: `${srcFolder}/files/**/*.*`,
-        html: `${srcFolder}/*.html`,
         css: `${srcFolder}/styles/style.scss`,
         js: `${srcFolder}/scripts/index.js`,
         img: `${srcFolder}/images/**/*.{jpg,jpeg,png,gif,webp}`,
@@ -71,9 +66,8 @@ const path = {
     },
     watch: {
         files: `${srcFolder}/files/**/*.*`,
-        html: `${srcFolder}/*.html`,
-        css: `${srcFolder}/styles/**/*.css`,
-        js: `${srcFolder}/js/**/*.js`,
+        css: `${srcFolder}/styles/**/*.scss`,
+        js: `${srcFolder}/scripts/**/*.js`,
         img: `${srcFolder}/images/**/*.{jpg,jpeg,png,gif,webp,svg}`,
     },
     clean: buildFolder,
@@ -83,37 +77,46 @@ const path = {
 
 const templateDir = './src/scripts/pages/';
 
-const readdirSync = (path, fName = null, dirName= null, result = {}) => {
-    if (fs.statSync(path).isDirectory()) {
-        const list = fs.readdirSync(path)
-        dirName = fName
-        list.forEach(fileName => {
-            readdirSync(nodePath.join(path, fileName),fileName,dirName, result)
-        })
-    }else {
-        if (fName === 'index.js') {
-            const posixPath =(winPath)=> winPath.replace(/\\/g, '/')
-            result[dirName] = `./${posixPath(path)}`
-        }
-    }
-
-    return result
-}
-const webpackentryPoints = {
-    'main': './src/scripts/index.js',
-    ...readdirSync(templateDir)
+const entryPoints = {
+    'main-head': './src/scripts/main-head.js',
+    'main-footer': './src/scripts/main-footer.js',
+    'aaq': './src/scripts/pages/aaq/index.js',
+    'about': './src/scripts/pages/about/index.js',
+    'advertisement': './src/scripts/pages/advertisement/index.js',
+    'all-news': './src/scripts/pages/all-news/index.js',
+    'all-videos': './src/scripts/pages/all-videos/index.js',
+    'appeal': './src/scripts/pages/appeal/index.js',
+    'author': './src/scripts/pages/author/index.js',
+    'authors-column': './src/scripts/pages/authors-column/index.js',
+    'cae': './src/scripts/pages/cae/index.js',
+    'event': './src/scripts/pages/event/index.js',
+    'home': './src/scripts/pages/home/index.js',
+    'management': './src/scripts/pages/management/index.js',
+    'radio-minsk': './src/scripts/pages/radio-minsk/index.js',
+    'satms': './src/scripts/pages/satms/index.js',
+    'single-authors-column': './src/scripts/pages/single-authors-column/index.js',
+    'single-district': './src/scripts/pages/single-district/index.js',
+    'single-event': './src/scripts/pages/single-event/index.js',
+    'single-news': './src/scripts/pages/single-news/index.js',
+    'single-satm': './src/scripts/pages/single-satm/index.js',
+    'taxonomy-news-list': './src/scripts/pages/taxonomy-news-list/index.js',
+    'taxonomy-newspapers': './src/scripts/pages/taxonomy-newspapers/index.js',
+    'taxonomy-videos': './src/scripts/pages/taxonomy-newspapers/index.js',
+    'tv-programme': './src/scripts/pages/taxonomy-newspapers/index.js',
+    'your-district': './src/scripts/pages/taxonomy-newspapers/index.js',
+    'sockets': './src/scripts/components/sockets.js',
+    'calendar': './src/scripts/components/calendar.js',
+    'sidebar': './src/scripts/components/sidebar.js',
 };
-console.log(webpackentryPoints)
-
 
 const webpackConf = {
     mode: isDev ? 'development' : 'production',
     optimization: {
         minimize: false
     },
-    entry: webpackentryPoints,
+    entry: entryPoints,
     output: {
-        filename: isProd? '[name].min.js':'[name].js',
+        filename: '[name].min.js',
     },
     module: {
         rules: [
@@ -124,27 +127,6 @@ const webpackConf = {
             }
         ]
     }
-}
-
-const html = () => {
-    return gulp.src(path.src.html)
-        .pipe(ifPlugin(isProd, webHtmlNosvg()))
-        .pipe(ifPlugin(isProd, versionNumber({
-            value: '%DT%',
-            append: {
-                key: '_v',
-                cover: 0,
-                to: [
-                    'css',
-                    'js'
-                ]
-            },
-            output: {
-                file: './version.json'
-            }
-        })))
-        .pipe(gulp.dest(path.build.html))
-        .pipe(browsersync.stream())
 }
 
 const sass = gulpSass(dartSass)
@@ -171,7 +153,6 @@ const css = () => {
         .pipe(importCss())
         .pipe(concat("style.min.css"))
         .pipe(ifPlugin(isProd, groupCssMediaQueries()))
-        .pipe(ifPlugin(isProd, webpcss({webpClass: ".webp", noWebpClass: ".no-webp"})))
         .pipe(ifPlugin(isProd, minifyCSS()))
         .pipe(ifPlugin(isProd, autoprefixer(AUTOPREFIXER_BROWSERS)))
         .pipe(gulp.dest(path.build.css))
@@ -220,18 +201,18 @@ const fonts = () => {
 
 const watcher = () => {
     gulp.watch(path.watch.files, copy)
-    gulp.watch(path.watch.html, html)
     gulp.watch(path.watch.css, css)
     gulp.watch(path.watch.js, js)
     gulp.watch(path.watch.img, img)
 }
 const server = (done) => {
     browsersync.init({
-        server: {
-            baseDir: `${path.build.html}`
+        proxy: {
+            target: 'http://localhost:3000/',
+            ws: true
         },
-        notify: true,
-        port: 3000
+        notify: false,
+        open: false
     })
 }
 const reset = () => {

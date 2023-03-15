@@ -19,7 +19,7 @@ function render_burger_nav()
 	$nav = $base_nav_settings;
 	$nav['theme_location'] = $location;
 	$nav['before'] = '<div class="menu-link">';
-	$nav['after'] = '<button class="expand-btn"><svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 7L5 1L1 7" stroke="#214972" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>';
+	$nav['after'] = '</div>';
 
 	if (!empty($nav['container_class'])) {
 		$nav['container_class'] = $nav['container_class'] . ' burger-nav';

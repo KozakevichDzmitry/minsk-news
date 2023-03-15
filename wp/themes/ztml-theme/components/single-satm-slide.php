@@ -11,9 +11,12 @@ function single_satm_slide($post)
 	<div>
 		<div class="satm-header">
 			<div class="content-exists">
-				<div class="content">
-					<?php render_content_exist_markers($post->ID); ?>
-				</div>
+                <?php $exist_markers = render_content_exist_markers($post_ID); ?>
+                <?php if($exist_markers): ?>
+                    <div class="content">
+                        <?php  echo $exist_markers; ?>
+                    </div>
+                <?php endif;?>
 				<div class="tags">
 					<span>Экономика</span>
 				</div>

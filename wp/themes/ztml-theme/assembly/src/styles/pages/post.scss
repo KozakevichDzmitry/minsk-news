@@ -82,6 +82,7 @@
 	z-index: 1;
 	transform: translateY(-50%);
 	transition: all 1s ease-in;
+	padding: 5px 3px;
 
 	.share-block {
 		position: absolute;
@@ -102,7 +103,7 @@
 		}
 
 		.nk_share_button{
-			svg, img{
+			svg, img,{
 				max-width: 30px;
 				width: 30px;
 				height: 33px;

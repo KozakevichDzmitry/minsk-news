@@ -19,9 +19,12 @@ function render_half_post($id, $cat = NULL)
 	<div class="post">
 		<div class="post-header">
 			<div class="content-exists">
-				<div class="content">
-					<?php render_content_exist_markers($single_post->ID); ?>
-				</div>
+                <?php $exist_markers = render_content_exist_markers($post_ID); ?>
+                <?php if($exist_markers): ?>
+                    <div class="content-exist">
+                        <?php  echo $exist_markers; ?>
+                    </div>
+                <?php endif;?>
 				<div class="tags">
                     <a href="<?php echo $cat_link; ?>" class="tags__link">
 					<span>
@@ -68,7 +71,7 @@ function render_half_post($id, $cat = NULL)
 					<a href="<?php echo get_author_posts_url(get_post_field('post_author', $single_post->ID)) . '?type=news'; ?>" class="other-posts">Все новости автора</a>
 				</div>
 			</div>
-			<?php echo do_shortcode('[share_links]'); ?>
+            <?php echo share_links($id); ?>
 		</div>
 	</div>
 <?php

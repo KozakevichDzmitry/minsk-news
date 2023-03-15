@@ -26,7 +26,6 @@
 
 		&.swiper-slide {
 			&.swiper-slide-active {
-				border: 1px solid #d91e23;
 				margin: 0;
 			}
 		}
@@ -47,5 +46,13 @@
 
 	.two .swiper-slide {
 		width: 320px !important;
+	}
+}
+@media (min-width: 577px){
+	.swiper-container.two{
+		padding-bottom: 0;
+	}
+	.swiper-container-horizontal>.swiper-pagination-bullets{
+		display: none;
 	}
 }

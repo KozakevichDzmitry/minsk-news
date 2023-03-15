@@ -18,9 +18,12 @@ function render_timline_news_template($post_ID)
 			<div class="post-info-container">
 				<div class="post-header">
 					<div class="post-header-info">
-						<div class="content-exist">
-							<?php render_content_exist_markers($post_ID); ?>
-						</div>
+                        <?php $exist_markers = render_content_exist_markers($post_ID); ?>
+                        <?php if($exist_markers): ?>
+                            <div class="content-exist">
+                                <?php  echo $exist_markers; ?>
+                            </div>
+                        <?php endif;?>
 						<div class="post-category">
                             <a href="<?php echo $cat_link; ?>" class="tags__link">
                             <span><?php echo get_post_primary_category($post_ID, get_my_taxonomies($post_ID))['primary_category']->name;?></span>
@@ -32,13 +35,12 @@ function render_timline_news_template($post_ID)
 							<span><?php echo get_the_time('H:i', $post_ID); ?></span>
 							<span><?php echo get_the_time('d.m.Y', $post_ID); ?></span>
 						</div>
-						<div class="adv__info">
-							<?php $is_advertising = carbon_get_post_meta($post_ID, 'news_is_advertising'); ?>
-
-							<?php if ($is_advertising) : ?>
-                                <span class="adv_icon__box"><?php render_advertising_icon(); ?></span>
-							<?php endif; ?>
-						</div>
+                        <?php $is_advertising = carbon_get_post_meta($post_ID, 'news_is_advertising'); ?>
+                        <?php if ($is_advertising) : ?>
+                        <div class="adv__info">
+                            <span class="adv_icon__box"><?php render_advertising_icon(); ?></span>
+                        </div>
+                        <?php endif; ?>
 					</div>
 				</div>
 				<div class="content-container">

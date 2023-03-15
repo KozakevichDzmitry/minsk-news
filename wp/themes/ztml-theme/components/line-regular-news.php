@@ -28,9 +28,12 @@ function render_line_regular_news($post_ID)
         <div class="content">
             <div class="content-header">
                 <a href="<?php echo $cat_link; ?>" class="tags__link">
-                <div class="content-exist">
-                    <?php render_content_exist_markers($post_ID); ?>
-                </div>
+                    <?php $exist_markers = render_content_exist_markers($post_ID); ?>
+                <?php if($exist_markers): ?>
+                    <div class="content-exist">
+                        <?php  echo $exist_markers; ?>
+                    </div>
+                <?php endif;?>
                 <span class="news-cat">
 					<?php echo get_post_primary_category($post_ID, get_my_taxonomies($post_ID))['primary_category']->name; ?>
                 </span>
@@ -47,16 +50,15 @@ function render_line_regular_news($post_ID)
                         <span><?php echo get_the_time('H:i', $post_ID); ?></span>
                         <span><?php echo get_the_time('d.m.Y', $post_ID); ?></span>
                     </div>
+                    <?php $is_advertising = carbon_get_post_meta($post_ID, 'news_is_advertising'); ?>
+                    <?php if ($is_advertising) : ?>
                     <div class="advertising-marker">
-                        <?php $is_advertising = carbon_get_post_meta($post_ID, 'news_is_advertising'); ?>
-
-                        <?php if ($is_advertising) : ?>
-                            <?php render_advertising_icon(); ?>
-                        <?php endif; ?>
+                        <?php render_advertising_icon(); ?>
                     </div>
+                    <?php endif; ?>
                 </div>
                 <div class="share-block--fold">
-                    <?php echo do_shortcode('[share_links]'); ?>
+                    <?php echo share_links($post_ID); ?>
                     <?php render_share_icon(); ?>
                 </div>
             </div>

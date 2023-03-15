@@ -95,7 +95,7 @@
       font-weight: 500;
       font-size: 12px;
       line-height: 16px;
-      color: $black60-color;
+      color: $black-color;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -103,11 +103,6 @@
       margin-top: 10px;
       margin-bottom: 15px;
       text-decoration: none;
-
-      svg {
-        height: 12px;
-        width: 12px;
-      }
     }
 
     .bottom-info {

@@ -26,7 +26,7 @@ function render_line_news_list_item($post_ID, $reversClass = false)
 					<span><?php echo get_the_time('d.m.Y', $post_ID); ?></span>
 				</div>
 				<div class="share-block--fold">
-					<?php echo do_shortcode('[share_links]'); ?>
+                    <?php echo share_links($post_ID); ?>
 					<?php render_share_icon(); ?>
 				</div>
 			</div>

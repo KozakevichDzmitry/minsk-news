@@ -54,7 +54,7 @@ function render_satms_list_items($post)
 					</span>
 				</div>
 				<div class="share-block--fold">
-					<?php echo do_shortcode('[share_links]'); ?>
+                    <?php echo share_links($post->ID); ?>
 					<?php render_share_icon(); ?>
 				</div>
 			</div>

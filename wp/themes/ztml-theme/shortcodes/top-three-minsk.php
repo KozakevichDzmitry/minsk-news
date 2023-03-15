@@ -16,7 +16,7 @@ function top_three_minsk()
 	echo '<div class="box box-list no-lines">';
 	foreach ($top_three_posts as $top_three_post) {
         $post_ID = $top_three_post['id'];
-        $img_url = get_the_post_thumbnail_url($post_ID, 'full');
+        $post_permalink = get_post_permalink($post_ID);
         $cat_link = home_url();
         $cat_link .= '/';
         $cat_link .= get_post_primary_category($post_ID, get_my_taxonomies($post_ID))['primary_category']->taxonomy;
@@ -25,14 +25,17 @@ function top_three_minsk()
         ?>
 
 	<div class="news-template-line vertical" data-postid="<?php echo $post_ID ?>" style="flex-direction: row">
-        <a href="<?php echo get_post_permalink($post_ID); ?>">
-            <img src="<?php echo $img_url; ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', TRUE); ?>" />
+        <a href="<?php echo $post_permalink; ?>">
+            <?php echo get_the_post_thumbnail( $post_ID, 'post-thumbnails' );?>
         </a>
 		<div class="post-container">
 			<div class="post-info-container">
-				<div class="content-exist">
-					<?php render_content_exist_markers($post_ID); ?>
-				</div>
+                <?php $exist_markers = render_content_exist_markers($post_ID); ?>
+                <?php if($exist_markers): ?>
+                    <div class="content-exist">
+                        <?php  echo $exist_markers; ?>
+                    </div>
+                <?php endif;?>
 				<div class="post-category">
                     <a href="<?php echo $cat_link; ?>" class="tags__link">
                     <span><?php echo get_post_primary_category($post_ID, get_my_taxonomies($post_ID))['primary_category']->name;?></span>
@@ -40,7 +43,7 @@ function top_three_minsk()
                 </div>
 			</div>
 			<div class="post-title">
-				<a href="<?php echo get_post_permalink($post_ID); ?>">
+				<a href="<?php echo $post_permalink; ?>">
 					<?php echo $top_three_post['title']; ?>
                 </a>
 			</div>
@@ -50,20 +53,17 @@ function top_three_minsk()
 						<span><?php echo get_the_time('H:i', $post_ID); ?></span>
 						<span><?php echo get_the_time('d.m.Y', $post_ID); ?></span>
 					</div>
-					<div>
-						<?php $is_advertising = carbon_get_post_meta($post_ID, 'news_is_advertising'); ?>
-
-						<?php if ($is_advertising) : ?>
-							<?php render_advertising_icon(); ?>
-						<?php endif; ?>
-					</div>
+                    <?php $is_advertising = carbon_get_post_meta($post_ID, 'news_is_advertising'); ?>
+                    <?php if ($is_advertising) : ?>
+                    <div>
+                        <?php render_advertising_icon(); ?>
+                    </div>
+                    <?php endif; ?>
 				</div>
-				<div>
-					<div class="share-block--fold">
-						<?php echo share_links($post_ID); ?>
-						<?php render_share_icon(); ?>
-					</div>
-				</div>
+                <div class="share-block--fold">
+                    <?php echo share_links($post_ID); ?>
+                    <?php render_share_icon(); ?>
+                </div>
 			</div>
 		</div>
 	</div>

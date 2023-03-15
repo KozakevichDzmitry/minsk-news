@@ -41,7 +41,7 @@
     "imagemin-zopfli": "^7.0.0",
     "sass": "^1.58.0",
     "terser-webpack-plugin": "^5.3.6",
-    "webp-converter": "^2.2.3",
+    "webp-converter": "^2.3.3",
     "webpack": "^5.75.0",
     "webpack-stream": "^7.0.0"
   },

@@ -20,7 +20,7 @@
 		<div class="content-wrapper">
 			<div class="main-content" id="<?php echo $post->ID; ?>">
 				<?php gt_set_post_view(); ?>
-				<?php render_news_whole_post($post); ?>
+				<?php render_news_whole_post($post->ID); ?>
 
 				<?php render_topic_bar('Читайте и подписывайтесь', false); ?>
 

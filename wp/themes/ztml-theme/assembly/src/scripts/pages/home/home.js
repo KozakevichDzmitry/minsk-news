@@ -1,9 +1,7 @@
 jQuery(document).ready(function ($) {
 	$.datepicker.setDefaults($.datepicker.regional.ru);
 
-	let lastPost = document.querySelector(
-		".long-news-list .timeline-main .news-template-line:last-child"
-	);
+	let lastPost = document.querySelector(".long-news-list .timeline-main .news-template-line:last-child");
 
 	$(lastPost).addClass("eof");
 
@@ -45,9 +43,7 @@ jQuery(document).ready(function ($) {
 		last_date = null;
 
 		dataRequest.offset = 0;
-		document
-			.querySelector(".long-news-list .timeline-main")
-			.scrollTo({ top: 0, behavior: "smooth" });
+		document.querySelector(".long-news-list .timeline-main").scrollTo({ top: 0, behavior: "smooth" });
 
 		ajaxRequest({ date: null }, (data) => {
 			resetCalendar.hide();
