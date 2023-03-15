@@ -88,7 +88,7 @@ function render_new_template_image($post_ID)
     ?>
 
 	<div class="news-template-image">
-        <?php echo get_the_post_thumbnail( $post_ID, 'post-thumbnails' );?>
+        <?php echo get_the_post_thumbnail( $post_ID, 'post-thumbnails', array('class' => 'skip-lazy'));?>
 		<div class="post-container">
 			<div class="post-title">
 				<a href="<?php echo get_post_permalink($post_ID); ?>">

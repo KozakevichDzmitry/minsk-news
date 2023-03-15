@@ -94,7 +94,7 @@ require_once(COMPONENTS_PATH . "nav.php");
                 <div class="right-half">
                     <div>
                         <a href="/" id="logo">
-                            <img alt="logo"
+                            <img alt="logo" width="75" height="40"
                                  src="<?php echo get_template_directory_uri() . '/assets/images/logo.svg'; ?>">
                         </a>
                     </div>
