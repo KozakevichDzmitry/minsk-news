@@ -2,26 +2,15 @@
 
 <?php require_once(COMPONENTS_PATH . 'topic-bar.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'pdf-attachments.php'); ?>
-<?php require_once(COMPONENTS_PATH . 'satms-list-tem.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'sidebar.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'calendar.php'); ?>
-
-
-<?php require_once(COMPONENTS_PATH . 'line-news-list-item.php'); ?>
 
 <?php require_once(COMPONENTS_PATH . 'news-templates.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/top-three-news-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/most-read-news-template.php'); ?>
 
-
 <?php require_once(COMPONENTS_PATH . "topic-minibar.php"); ?>
-
-<?php require_once(COMPONENTS_PATH . 'news-templates/culture-news-template.php'); ?>
-<?php require_once(COMPONENTS_PATH . 'news-templates/district-news-template.php'); ?>
-<?php require_once(COMPONENTS_PATH . 'news-templates/economy-tempalte.php'); ?>
-<?php require_once(COMPONENTS_PATH . 'news-templates/society-news-tempalte.php'); ?>
-<?php require_once(COMPONENTS_PATH . 'news-templates/urban-economy-news-template.php'); ?>
 
 <?php require_once(COMPONENTS_PATH . 'event-gallery-slider.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'event-loop-messages.php'); ?>
