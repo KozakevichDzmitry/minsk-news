@@ -183,7 +183,7 @@ $vfat = array(
                             <div class="team-list__pagination swiper-pagination"></div>
 						</div>
                         <div class="team-arrow-prev swiper-arrow swiper-arrow-prev"></div>
-                        <div class="team-arrow-prev swiper-arrow swiper-arrow-next"></div>
+                        <div class="team-arrow-next swiper-arrow swiper-arrow-next"></div>
 					</div>
                     <div id="advertising">
                         <a class="radio-minsk__btn" href="<?php echo get_home_url(). '/reklama/#price-list-5'; ?>">Разместить рекламу</a>
