@@ -21,7 +21,7 @@ $newspapers_taxes = get_terms(
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">
-				<?php render_half_post($post); ?>
+				<?php render_half_post($post->ID); ?>
 
 				<?php render_topic_bar('Читайте и подписывайтесь', false); ?>
 

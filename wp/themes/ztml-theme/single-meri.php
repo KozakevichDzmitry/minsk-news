@@ -8,27 +8,18 @@
 <?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
 
 <?php require_once(COMPONENTS_PATH . 'line-news-list-item.php'); ?>
-
-<?php
-$newspapers_taxes = get_terms(
-	array(
-		'taxonomy' => get_taxonomies(['object_type' => ['newspaper']]),
-		'hide_empty' => false
-	)
-);
-?>
-
+<?php $post_id = get_the_ID(); ?>
 <div class="adfox-banner-background">
-	<?php render_adv('post', get_the_ID(), 'background'); ?>
+	<?php render_adv('post', $post_id, 'background'); ?>
 </div>
 <main class="ta single-take-actions">
-    <div class="container container_adv"><?php render_adv('post', get_the_ID(), 'before_main'); ?></div>
-	<?php plus_and_zen_post($post->ID); ?>
+    <div class="container container_adv"><?php render_adv('post', $post_id, 'before_main'); ?></div>
+	<?php plus_and_zen_post($post_id); ?>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">
 				<div class="mob-container">
-					<?php render_half_post($post); ?>
+					<?php render_half_post($post->ID); ?>
 				</div>
 
 				<?php render_topic_bar('Читайте и подписывайтесь', false); ?>
@@ -46,7 +37,7 @@ $newspapers_taxes = get_terms(
 				</div>
 			</div>
 			<div class="second-content">
-                <?php render_newspapers_template('post', get_the_ID()); ?>
+                <?php render_newspapers_template('post', $post_id); ?>
 			</div>
 		</div>
 		<?php render_sidebar(); ?>

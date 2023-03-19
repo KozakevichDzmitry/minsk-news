@@ -13,6 +13,15 @@
 <?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/most-read-news-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . "adv.php"); ?>
+<?php
+$args = array(
+    'post_status' => 'publish',
+    'posts_per_page' => 31,
+    'post_type' => 'authors-column',
+);
+
+$posts = get_posts($args);
+?>
 
 <div class="adfox-banner-background">
 	<?php render_adv('post', $post->ID, 'background'); ?>
@@ -23,9 +32,8 @@
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="authors-posts-container">
-
 				<div class="main-content">
-					<?php render_half_post($post, "Авторская колонка"); ?>
+					<?php render_half_post($post->ID, "Авторская колонка"); ?>
 					<?php render_topic_bar('Читайте и подписывайтесь'); ?>
 					<div class="sub-block">
                         <div>
@@ -38,24 +46,12 @@
 							<a target="_blank" href="https://news.google.com/publications/CAAiEJC-mX-9vJkoL28IxRv_JPsqFAgKIhCQvpl_vbyZKC9vCMUb_yT7?hl=ru&gl=RU&ceid=RU%3Aru"><img src="<?php echo get_template_directory_uri() . '/assets/images/google-logo.png'; ?>" alt="Goolge logo" /></a>
 						</div>
 					</div>
-
-					<?php
-					$meri_args = array(
-						'post_status' => 'publish',
-						'posts_per_page' => 31,
-						'post_type' => 'authors-column',
-					);
-
-					$meri_posts = get_posts($meri_args);
-					?>
-
-					<?php if (!empty($meri_posts)) : ?>
-						<?php foreach ($meri_posts as $post) : ?>
-							<?php render_half_post($post); ?>
+					<?php if (!empty($posts)) : ?>
+						<?php foreach ($posts as $p) : ?>
+							<?php render_half_post($p->ID); ?>
 						<?php endforeach; ?>
 					<?php endif; ?>
 				</div>
-
 			</div>
 			<div class="second-content">
 				<?php render_top_three_news_template('post', $post->ID); ?>

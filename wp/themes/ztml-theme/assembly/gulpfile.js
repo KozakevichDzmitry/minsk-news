@@ -94,6 +94,7 @@ const entryPoints = {
     'management': './src/scripts/pages/management/index.js',
     'radio-minsk': './src/scripts/pages/radio-minsk/index.js',
     'satms': './src/scripts/pages/satms/index.js',
+    'single-cae': './src/scripts/pages/single-cae/index.js',
     'single-authors-column': './src/scripts/pages/single-authors-column/index.js',
     'single-district': './src/scripts/pages/single-district/index.js',
     'single-event': './src/scripts/pages/single-event/index.js',

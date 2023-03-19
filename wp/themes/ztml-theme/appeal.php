@@ -19,15 +19,6 @@
 <?php $page_id = $post->ID; ?>
 <?php $managers = carbon_get_post_meta(get_queried_object_id(), 'crb_manager_description'); ?>
 
-<?php
-$newspapers_taxes = get_terms(
-	array(
-		'taxonomy' => get_taxonomies(['object_type' => ['newspaper']]),
-		'hide_empty' => false
-	)
-);
-?>
-
 <div class="adfox-banner-background">
 	<?php render_adv('page', get_the_ID(), 'background'); ?>
 </div>

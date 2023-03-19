@@ -26,12 +26,6 @@
 
 <?php $page_id = $post->ID; ?>
 <?php
-$newspapers_taxes = get_terms(
-	array(
-		'taxonomy' => get_taxonomies(['object_type' => ['newspaper']]),
-		'hide_empty' => false
-	)
-);
 
 $districts = array(
 	'Центральный',
