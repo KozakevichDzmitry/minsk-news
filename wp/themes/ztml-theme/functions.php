@@ -181,8 +181,8 @@ function page_scripts()
             lightbox_register();
             wp_enqueue_script('district-page', get_template_directory_uri() . '/assets/js/single-district.min.js', array('jquery', 'swiper'), _S_VERSION, true);
         } elseif ($template == "single-event.php") {
-            slick_register();
-            wp_enqueue_script('single-event', get_template_directory_uri() . '/assets/js/single-event.min.js', array('jquery', 'slick-min'), _S_VERSION, true);
+//            slick_register();
+//            wp_enqueue_script('single-event', get_template_directory_uri() . '/assets/js/single-event.min.js', array('jquery', 'slick-min'), _S_VERSION, true);
         } elseif ($template == "single-news.php") {
             wp_enqueue_script('single-news', get_template_directory_uri() . '/assets/js/single-news.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == 'single-satm.php') {

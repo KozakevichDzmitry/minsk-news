@@ -9,13 +9,16 @@ require_once(COMPONENTS_PATH . 'content-exist-markers.php');
 function render_half_post($id, $cat = NULL)
 {
     $taxonomies = get_my_taxonomies($id);
-    if(!empty($taxonomies)){
-        $primary_category = get_post_primary_category($id, $taxonomies)['primary_category'];
-        $cat_link = home_url();
-        $cat_link .= '/';
-        $cat_link .= $primary_category->taxonomy;
-        $cat_link .= '/';
-        $cat_link .= $primary_category->slug;
+    if (!empty($taxonomies)) {
+        $primary_category = get_post_primary_category($id, $taxonomies);
+        if(!empty($primary_category['primary_category'])){
+            $primary_category = $primary_category['primary_category'];
+            $cat_link = home_url();
+            $cat_link .= '/';
+            $cat_link .= $primary_category->taxonomy;
+            $cat_link .= '/';
+            $cat_link .= $primary_category->slug;
+        }
     }
 ?>
 	<?php $single_post = get_post($id); ?>

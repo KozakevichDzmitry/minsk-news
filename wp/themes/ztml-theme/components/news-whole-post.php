@@ -8,17 +8,19 @@ require_once(COMPONENTS_PATH . 'content-exist-markers.php');
 
 function render_news_whole_post($id, $cat = NULL)
 {
-
     $single_post = get_post($id);
     $author_id = $single_post->post_author;
     $taxonomies = get_my_taxonomies($id);
     if (!empty($taxonomies)) {
-        $primary_category = get_post_primary_category($id, $taxonomies)['primary_category'];
-        $cat_link = home_url();
-        $cat_link .= '/';
-        $cat_link .= $primary_category->taxonomy;
-        $cat_link .= '/';
-        $cat_link .= $primary_category->slug;
+        $primary_category = get_post_primary_category($id, $taxonomies);
+        if(!empty($primary_category['primary_category'])){
+            $primary_category = $primary_category['primary_category'];
+            $cat_link = home_url();
+            $cat_link .= '/';
+            $cat_link .= $primary_category->taxonomy;
+            $cat_link .= '/';
+            $cat_link .= $primary_category->slug;
+        }
     }
     ?>
     <div class="post">
@@ -40,13 +42,11 @@ function render_news_whole_post($id, $cat = NULL)
                     </div>
                 <?php endif; ?>
             </div>
-
             <div class="title">
 				<span>
 					<?php echo get_the_title($single_post->ID); ?>
 				</span>
             </div>
-
             <div class="share">
                 <div class="date">
 					<span>
@@ -61,7 +61,6 @@ function render_news_whole_post($id, $cat = NULL)
         <?php
         $content = apply_filters('the_content', $single_post->post_content, $single_post->ID);
         ?>
-
         <div class="page-content">
             <?php echo $content; ?>
             <?php $is_advertising = carbon_get_post_meta($single_post->ID, 'news_is_advertising'); ?>

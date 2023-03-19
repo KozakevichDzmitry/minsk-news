@@ -9,12 +9,15 @@ function render_timline_news_template($post_ID)
 {
     $taxonomies = get_my_taxonomies($post_ID);
     if (!empty($taxonomies)) {
-        $primary_category = get_post_primary_category($post_ID, $taxonomies)['primary_category'];
-        $cat_link = home_url();
-        $cat_link .= '/';
-        $cat_link .= $primary_category->taxonomy;
-        $cat_link .= '/';
-        $cat_link .= $primary_category->slug;
+        $primary_category = get_post_primary_category($post_ID, $taxonomies);
+        if(!empty($primary_category['primary_category'])){
+            $primary_category = $primary_category['primary_category'];
+            $cat_link = home_url();
+            $cat_link .= '/';
+            $cat_link .= $primary_category->taxonomy;
+            $cat_link .= '/';
+            $cat_link .= $primary_category->slug;
+        }
     }
     ?>
     <div class="timeline-news-template" data-postid="<?php echo $post_ID ?>">

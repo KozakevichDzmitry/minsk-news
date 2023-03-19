@@ -24,12 +24,15 @@ class AnnounceWidget extends Widget
             $img_url = get_the_post_thumbnail_url($id, array(270, 180));
             $taxonomies = get_my_taxonomies($id);
             if (!empty($taxonomies)) {
-                $primary_category = get_post_primary_category($id, $taxonomies)['primary_category'];
-                $cat_link = home_url();
-                $cat_link .= '/';
-                $cat_link .= $primary_category->taxonomy;
-                $cat_link .= '/';
-                $cat_link .= $primary_category->slug;
+                $primary_category = get_post_primary_category($id, $taxonomies);
+                if(!empty($primary_category['primary_category'])){
+                    $primary_category = $primary_category['primary_category'];
+                    $cat_link = home_url();
+                    $cat_link .= '/';
+                    $cat_link .= $primary_category->taxonomy;
+                    $cat_link .= '/';
+                    $cat_link .= $primary_category->slug;
+                }
             }
             if ('publish' === $status) render_new_template_video($id, false, false);
             else if ('future' === $status) { ?>

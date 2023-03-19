@@ -206,8 +206,7 @@ function td_gallery_shortcode($output = '', $atts, $content = false)
                 $cur_item_nr++;
             }
         }
-        $script = "<script>
-                    document.addEventListener('DOMContentLoaded', () => {
+        $script = "document.addEventListener('DOMContentLoaded', () => {
                                 const sliderThumbs = new Swiper('#thumb_$gallery_slider_unique_id', {
                                     speed: 400,
                                     slidesPerView: 2,
@@ -257,9 +256,8 @@ function td_gallery_shortcode($output = '', $atts, $content = false)
                                         swiper: sliderThumbs
                                     },
                                 });
-                    })
-                    swiper.updateAutoHeight(800)
-                      </script>";
+                                swiper.updateAutoHeight(800)
+                    })";
         if (!empty($title_slide)) {
             $buffy .= "<h3>$title_slide</h3>";
         }
@@ -279,8 +277,9 @@ function td_gallery_shortcode($output = '', $atts, $content = false)
                             <div class='thumb-swiper-button-next button-next-$gallery_slider_unique_id'></div>
                         </div>
                       </div>";
-            $buffy .= $script;
+
             gallery_enqueue_scripts();
+            wp_add_inline_script( 'swiper',$script);
         }//end check if we have html code for the slider
     }//end if slide
 

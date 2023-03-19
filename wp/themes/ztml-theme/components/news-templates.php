@@ -13,12 +13,15 @@ function render_news_template_line($post_ID, $withImages = false, $reversed = fa
 {
     $taxonomies = get_my_taxonomies($post_ID);
     if (!empty($taxonomies)) {
-        $primary_category = get_post_primary_category($post_ID, $taxonomies)['primary_category'];
-        $cat_link = home_url();
-        $cat_link .= '/';
-        $cat_link .= $primary_category->taxonomy;
-        $cat_link .= '/';
-        $cat_link .= $primary_category->slug;
+        $primary_category = get_post_primary_category($post_ID, $taxonomies);
+        if(!empty($primary_category['primary_category'])){
+            $primary_category = $primary_category['primary_category'];
+            $cat_link = home_url();
+            $cat_link .= '/';
+            $cat_link .= $primary_category->taxonomy;
+            $cat_link .= '/';
+            $cat_link .= $primary_category->slug;
+        }
     }
     ?>
     <div class="news-template-line <?php echo $vertical ? 'vertical' : ''; ?>" data-postid="<?php echo $post_ID ?>"
@@ -84,12 +87,15 @@ function render_new_template_image($post_ID)
 {
     $taxonomies = get_my_taxonomies($post_ID);
     if (!empty($taxonomies)) {
-        $primary_category = get_post_primary_category($post_ID, $taxonomies)['primary_category'];
-        $cat_link = home_url();
-        $cat_link .= '/';
-        $cat_link .= $primary_category->taxonomy;
-        $cat_link .= '/';
-        $cat_link .= $primary_category->slug;
+        $primary_category = get_post_primary_category($post_ID, $taxonomies);
+        if(!empty($primary_category['primary_category'])){
+            $primary_category = $primary_category['primary_category'];
+            $cat_link = home_url();
+            $cat_link .= '/';
+            $cat_link .= $primary_category->taxonomy;
+            $cat_link .= '/';
+            $cat_link .= $primary_category->slug;
+        }
     }
     ?>
     <div class="news-template-image">
@@ -139,12 +145,15 @@ function render_new_template_video($post_ID, $is_future = false, $is_wrapper_cla
     $url = get_the_post_thumbnail_url($post_ID);
     $taxonomies = get_my_taxonomies($post_ID);
     if (!empty($taxonomies)) {
-        $primary_category = get_post_primary_category($post_ID, $taxonomies)['primary_category'];
-        $cat_link = home_url();
-        $cat_link .= '/';
-        $cat_link .= $primary_category->taxonomy;
-        $cat_link .= '/';
-        $cat_link .= $primary_category->slug;
+        $primary_category = get_post_primary_category($post_ID, $taxonomies);
+        if(!empty($primary_category['primary_category'])){
+            $primary_category = $primary_category['primary_category'];
+            $cat_link = home_url();
+            $cat_link .= '/';
+            $cat_link .= $primary_category->taxonomy;
+            $cat_link .= '/';
+            $cat_link .= $primary_category->slug;
+        }
     }
     ?>
     <div class="<?php echo $is_wrapper_class ? 'box' : '' ?>" data-postid="<?php echo $post_ID ?>">

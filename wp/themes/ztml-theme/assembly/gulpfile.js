@@ -59,7 +59,7 @@ const path = {
     src: {
         files: `${srcFolder}/files/**/*.*`,
         css: `${srcFolder}/styles/style.scss`,
-        js: `${srcFolder}/scripts/index.js`,
+        js: `${srcFolder}/scripts/*.js`,
         img: `${srcFolder}/images/**/*.{jpg,jpeg,png,gif,webp}`,
         svg: `${srcFolder}/images/**/*.svg`,
         fonts: `${srcFolder}/fonts/*.*`,
