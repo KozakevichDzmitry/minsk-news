@@ -1,5 +1,3 @@
-<?php get_header(); ?>
-
 <?php
 require_once(COMPONENTS_PATH . 'pdf-attachments.php');
 require_once(COMPONENTS_PATH . 'topic-bar.php');
@@ -33,7 +31,7 @@ $the_query = new WP_Query(
 ?>
 
 <?php $topic_title = single_term_title('', false); ?>
-
+<?php get_header(); ?>
 <div class="adfox-banner-background">
 	<?php render_adv('page', $taxonomy_id, 'background'); ?>
 </div>
@@ -43,7 +41,6 @@ $the_query = new WP_Query(
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_topic_bar($topic_title); ?>
-
 				<div class="mob-container">
                     <?php echo get_term_field('description', $taxonomy_id); ?>
 					<?php
@@ -61,7 +58,6 @@ $the_query = new WP_Query(
 						)
 					);
 					$posts = get_posts($args);
-
 					if (!empty($posts)) {
 					?>
 						<div class="pdf-attachments">
@@ -107,5 +103,4 @@ $the_query = new WP_Query(
 		}); ?>
 	</div>
 </main>
-
 <?php get_footer(); ?>

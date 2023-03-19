@@ -198,7 +198,7 @@ function page_scripts()
             calendar_register();
             wp_enqueue_script('taxonomy-news-list', get_template_directory_uri() . '/assets/js/taxonomy-news-list.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == 'taxonomy-newspapers.php') {
-            wp_enqueue_script('newspaper', get_template_directory_uri() . '/assets/js/newspapers.min.js', array('jquery'), _S_VERSION, true);
+            wp_enqueue_script('newspaper', get_template_directory_uri() . '/assets/js/taxonomy-newspapers.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == 'taxonomy-videos.php') {
             calendar_register();
             wp_enqueue_script('taxonomy-videos', get_template_directory_uri() . '/assets/js/taxonomy-videos.min.js', array('jquery'), _S_VERSION, true);
