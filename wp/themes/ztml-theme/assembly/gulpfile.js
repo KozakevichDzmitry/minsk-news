@@ -104,7 +104,7 @@ const entryPoints = {
     'taxonomy-news-list': './src/scripts/pages/taxonomy-news-list/index.js',
     'taxonomy-meri-list': './src/scripts/pages/taxonomy-meri-list/index.js',
     'taxonomy-newspapers': './src/scripts/pages/taxonomy-newspapers/index.js',
-    'taxonomy-videos': './src/scripts/pages/taxonomy-newspapers/index.js',
+    'taxonomy-videos': './src/scripts/pages/taxonomy-videos/index.js',
     'tv-programme': './src/scripts/pages/taxonomy-newspapers/index.js',
     'your-district': './src/scripts/pages/taxonomy-newspapers/index.js',
     'sockets': './src/scripts/components/sockets.js',

@@ -6,16 +6,14 @@
 <?php require_once(COMPONENTS_PATH . 'news-templates/video-news-tempalte.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'adv.php'); ?>
 
-<?php get_header(); ?>
-
 <?php
 $term = get_queried_object();
 $taxonomy_id = $term->term_id;
 ?>
 
 <?php
-$show_count = 27;
-$load_count = 27;
+$show_count = 12;
+$load_count = 12;
 
 $tax_query = array(
 	array(
@@ -53,7 +51,7 @@ $last_post_id = get_posts(array(
 	'tax_query' => $tax_query
 ))[0]->ID;
 ?>
-
+<?php get_header(); ?>
 <div class="adfox-banner-background">
 	<?php render_adv('page', $taxonomy_id, 'background'); ?>
 </div>

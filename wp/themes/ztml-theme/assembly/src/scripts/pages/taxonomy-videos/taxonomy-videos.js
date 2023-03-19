@@ -71,7 +71,6 @@ jQuery(document).ready(function ($) {
 			}
 		});
 	});
-
 	$("#datepicker-taxonomy-videos-template").datepicker({
 		showOn: "both",
 		changeYear: true,
