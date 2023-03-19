@@ -177,10 +177,9 @@ function page_scripts()
         } elseif ($template == "single-authors-column.php") {
             wp_enqueue_script('single-authors-column', get_template_directory_uri() . '/assets/js/single-authors-column.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == 'single-district.php') {
-            wp_enqueue_style('swiper-css', get_template_directory_uri() . '/assembly/src/libs/swiper/swiper.css', null, null);
-            wp_enqueue_script('swiper-old', get_template_directory_uri() . '/assembly/src/libs/swiper/swiper-old.min.js', array('jquery'), null, true);
-            slick_lightbox_register();
-            wp_enqueue_script('district-page', get_template_directory_uri() . '/assets/js/single-district.min.js', array('jquery', 'slick-min', 'slick-lightbox-min'), _S_VERSION, true);
+            swiper_register();
+            lightbox_register();
+            wp_enqueue_script('district-page', get_template_directory_uri() . '/assets/js/single-district.min.js', array('jquery', 'swiper'), _S_VERSION, true);
         } elseif ($template == "single-event.php") {
             slick_register();
             wp_enqueue_script('single-event', get_template_directory_uri() . '/assets/js/single-event.min.js', array('jquery', 'slick-min'), _S_VERSION, true);
@@ -217,7 +216,10 @@ function swiper_register()
     wp_enqueue_style('swiper', get_template_directory_uri() . '/assembly/src/libs/swiper/swiper.css');
     wp_enqueue_script('swiper', get_template_directory_uri() . '/assembly/src/libs/swiper/swiper.js', array('jquery'));
 }
-
+function lightbox_register(){
+    wp_enqueue_style('lightbox', get_template_directory_uri() . '/libs/lightbox/css/lightbox.min.css');
+    wp_enqueue_script('lightbox', get_template_directory_uri() . '/libs/lightbox/js/lightbox.min.js', array('jquery'), null, true);
+}
 function sticky_sidebar_register()
 {
     wp_enqueue_script('sticky-sidebar', get_template_directory_uri() . '/assembly/src/libs/sticky-sidebar/sticky-sidebar.min.js', array('jquery'), null, true);

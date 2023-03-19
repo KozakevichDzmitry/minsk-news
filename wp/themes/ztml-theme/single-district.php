@@ -33,15 +33,21 @@ $page_template_slug = $post->post_name;
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_topic_bar(get_the_title(), true, [], false); ?>
-				<div class="district__slider">
-					<?php foreach (carbon_get_the_post_meta('crb_district_gallery_iamges') as $id) : ?>
-						<div>
-							<a href="<?php echo wp_get_attachment_url($id); ?>">
-								<img src="<?php echo wp_get_attachment_url($id); ?>" alt="<?php echo get_post_meta($id, '_wp_attachment_image_alt', TRUE); ?>" />
-							</a>
-						</div>
-					<?php endforeach; ?>
-				</div>
+                <div class="swiper-gallery district-slider">
+                    <div class="swiper-gallery__wrapper district-slider__wrapper swiper-wrapper">
+                        <?php foreach (carbon_get_the_post_meta('crb_district_gallery_iamges') as $id) : ?>
+                        <?php $url = wp_get_attachment_url($id); ?>
+                            <div class="swiper-gallery__item district-slider__item swiper-slide">
+                                <a href="<?php echo $url;?>" data-lightbox="swiper-gallery-district">
+                                    <img src="<?php echo $url; ?>" alt="<?php echo get_post_meta($id, '_wp_attachment_image_alt', TRUE); ?>" />
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="district-slider__pagination swiper-gallery__pagination swiper-pagination"></div>
+                    <div class="district-slider__arrow-prev swiper-arrow swiper-arrow-prev"></div>
+                    <div class="district-slider__arrow-next swiper-arrow swiper-arrow-next"></div>
+                </div>
 				<div class="district__info">
 					<?php the_content(); ?>
 				</div>

@@ -179,16 +179,16 @@ const copy = () => {
 
 const img = () => {
     return gulp.src(path.src.img)
-        .pipe(ifPlugin(isProd, newer(path.build.img)))
-        .pipe(ifPlugin(isProd, webp()))
-        .pipe(ifPlugin(isProd, gulp.dest(path.build.img)))
-        .pipe(ifPlugin(isProd, gulp.src(path.src.img)))
-        .pipe(ifPlugin(isProd, newer(path.build.img)))
-        .pipe(ifPlugin(isProd, imagemin([
-            gifsicle({interlaced: true}),
-            mozjpeg({quality: 75, progressive: true}),
-            optipng({optimizationLevel: 5}),
-        ])))
+        // .pipe(ifPlugin(isProd, newer(path.build.img)))
+        // .pipe(ifPlugin(isProd, webp()))
+        // .pipe(ifPlugin(isProd, gulp.dest(path.build.img)))
+        // .pipe(ifPlugin(isProd, gulp.src(path.src.img)))
+        // .pipe(ifPlugin(isProd, newer(path.build.img)))
+        // .pipe(ifPlugin(isProd, imagemin([
+        //     gifsicle({interlaced: true}),
+        //     mozjpeg({quality: 75, progressive: true}),
+        //     optipng({optimizationLevel: 5}),
+        // ])))
         .pipe(gulp.dest(path.build.img))
         .pipe(gulp.src(path.src.svg))
         .pipe(gulp.dest(path.build.img))

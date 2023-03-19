@@ -188,7 +188,7 @@ main {
 .main-content {
   margin-bottom: 40px;
 
-  > div:not(.topic-bar) {
+  > div:not(.topic-bar):not(.swiper-gallery){
     padding: 0 10px;
   }
 }
