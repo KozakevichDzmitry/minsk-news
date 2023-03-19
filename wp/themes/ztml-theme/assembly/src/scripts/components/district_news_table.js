@@ -23,6 +23,7 @@ jQuery(document).ready(function ($) {
                 slideClass: 'district-item',
                 slideActiveClass: 'active',
                 slidesPerView: 1,
+                spaceBetween: 22,
                 paginationClickable: true,
                 clickable: true,
                 loop: false,

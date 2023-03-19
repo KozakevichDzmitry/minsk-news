@@ -1,6 +1,6 @@
 .district-tablet-template {
   margin-bottom: 30px;
-  padding-left: 10px;
+  padding-left: 10px!important;
 
   .districts-list-container {
     display: flex;
@@ -239,7 +239,7 @@
 @media (max-width: 768px) {
   .district-tablet-template {
     position: relative;
-    padding: 0 0 30px 0;
+    padding: 0 22px 30px!important;
     margin-right: 20px;
     margin-left: 20px;
     overflow: hidden;

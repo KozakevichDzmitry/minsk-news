@@ -207,8 +207,8 @@ function page_scripts()
             wp_enqueue_script('accordion-components', get_template_directory_uri() . '/assets/js/components/accordion.min.js', array('jquery'), _S_VERSION, true);
             wp_enqueue_script('tv-programme-page', get_template_directory_uri() . '/assets/js/tv-programms.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == "your-district.php") {
-            slick_register();
-            wp_enqueue_script('your-district-page', get_template_directory_uri() . '/assets/js/your-district.min.js', array('jquery', 'slick-min', 'slick-lightbox-min'), _S_VERSION, true);
+            swiper_register();
+            wp_enqueue_script('your-district-page', get_template_directory_uri() . '/assets/js/your-district.min.js', array('jquery', 'swiper'), _S_VERSION, true);
         }
     }
 }
