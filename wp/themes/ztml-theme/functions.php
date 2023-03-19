@@ -193,6 +193,7 @@ function page_scripts()
             wp_enqueue_script('take-action', get_template_directory_uri() . '/assets/js/take-action.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == "taxonomy-meri-list.php") {
             calendar_register();
+            wp_enqueue_script('taxonomy-meri-list', get_template_directory_uri() . '/assets/js/taxonomy-meri-list.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == "taxonomy-news-list.php") {
             calendar_register();
             wp_enqueue_script('taxonomy-news-list', get_template_directory_uri() . '/assets/js/taxonomy-news-list.min.js', array('jquery'), _S_VERSION, true);

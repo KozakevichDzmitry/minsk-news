@@ -102,6 +102,7 @@ const entryPoints = {
     'single-satm': './src/scripts/pages/single-satm/index.js',
     'take-action': './src/scripts/pages/take-action/index.js',
     'taxonomy-news-list': './src/scripts/pages/taxonomy-news-list/index.js',
+    'taxonomy-meri-list': './src/scripts/pages/taxonomy-meri-list/index.js',
     'taxonomy-newspapers': './src/scripts/pages/taxonomy-newspapers/index.js',
     'taxonomy-videos': './src/scripts/pages/taxonomy-newspapers/index.js',
     'tv-programme': './src/scripts/pages/taxonomy-newspapers/index.js',
