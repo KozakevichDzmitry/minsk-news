@@ -4,6 +4,18 @@ require_once(COMPONENTS_PATH . 'content-exist-markers.php');
 
 function render_post_topic_bar($post_ID)
 {
+    $taxonomies = get_my_taxonomies($post_ID);
+    if (!empty($taxonomies)) {
+        $primary_category = get_post_primary_category($post_ID, $taxonomies);
+        if(!empty($primary_category['primary_category'])){
+            $primary_category = $primary_category['primary_category'];
+            $cat_link = home_url();
+            $cat_link .= '/';
+            $cat_link .= $primary_category->taxonomy;
+            $cat_link .= '/';
+            $cat_link .= $primary_category->slug;
+        }
+    }
 ?>
 	<div class="post-topic-bar">
 		<div class="content-exists">
@@ -13,24 +25,15 @@ function render_post_topic_bar($post_ID)
                     <?php  echo $exist_markers; ?>
                 </div>
             <?php endif;?>
-			<div class="tags">
-				<?php
-				$terms = get_the_terms($post_ID, 'news-list');
-				$term = '';
-				?>
-				<?php if (!empty($terms)) :
-					foreach ($terms as $t) {
-						if ($t->name == 'Главное' || $t->name == 'Лента') {
-							continue;
-						} else {
-							$term = $t->name;
-							break;
-						}
-					}
-				?>
-					<span><?php echo $term; ?></span>
-				<?php endif; ?>
-			</div>
+            <?php if (isset($cat_link)): ?>
+                <div class="tags">
+                    <a href="<?php echo $cat_link; ?>" class="tags__link">
+                        <span>
+                            <?php echo $primary_category->name; ?>
+                        </span>
+                    </a>
+                </div>
+            <?php endif; ?>
 		</div>
 
 		<div class="title">

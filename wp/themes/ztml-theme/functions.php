@@ -186,6 +186,7 @@ function page_scripts()
         } elseif ($template == "single-news.php") {
             wp_enqueue_script('single-news', get_template_directory_uri() . '/assets/js/single-news.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == 'single-satm.php') {
+            //нет такой страницы
             wp_enqueue_script('single-satm', get_template_directory_uri() . '/assets/js/single-satm.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == 'take-action.php') {
             calendar_register();

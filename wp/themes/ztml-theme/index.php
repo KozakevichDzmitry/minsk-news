@@ -22,7 +22,7 @@
 		<div class="content-wrapper">
             <div class="main-content">
                 <?php gt_set_post_view(); ?>
-                <?php render_news_whole_post($post); ?>
+                <?php render_news_whole_post($post->ID); ?>
             </div>
 			<?php render_newspapers_template(); ?>
 		</div>
