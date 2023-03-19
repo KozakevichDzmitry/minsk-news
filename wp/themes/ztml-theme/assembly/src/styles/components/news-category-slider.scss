@@ -1,11 +1,8 @@
 .category-select-slider {
 	margin-top: 35px;
+	overflow: hidden;
 
 	.slider-container {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-
 		.slick-list.draggable {
 			width: 90%;
 		}
@@ -26,11 +23,9 @@
 
 		padding: 10px;
 		white-space: nowrap;
-		margin: 0px 15px 0px 0px;
 		text-transform: uppercase;
 		text-decoration: none;
 		text-align: center;
-		width: fit-content;
 	}
 
 	.slick-arrow {

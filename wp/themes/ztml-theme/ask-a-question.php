@@ -24,7 +24,6 @@ $show_count = 10;
 $load_count = 5;
 
 $efiri_args = array(
-	'post_type' => 'post',
 	'post_type' => 'aaq',
 	'post_status' => 'publish',
 	'posts_per_page' => $show_count
@@ -52,7 +51,6 @@ $show_ethers_status = carbon_get_post_meta(get_queried_object_id(), 'crb_aaq_sho
 				<?php render_topic_bar(get_the_title(), false); ?>
 				<div class="aqq-content">
 					<p class="title">Уважаемые жители столицы, Мингорисполком совместно с агентством «Минск-Новости» реализует проект «Задайте вопрос столичным властям».</p>
-
 					<?php if (!$show_descriptions_status) : ?>
 						<div class="part">
 							<div class="part-item">
@@ -75,9 +73,10 @@ $show_ethers_status = carbon_get_post_meta(get_queried_object_id(), 'crb_aaq_sho
 
 				<?php if (!$show_appeals_status) : ?>
 					<?php if (!empty($appeals_posts)) : ?>
-						<div class="aaq-question-list">
+                    <div class="aaq-questions">
+						<div class="aaq-question-list swiper-wrapper">
 							<?php foreach ($appeals_posts as $pst) : ?>
-								<div class="aaq-question-list-item">
+								<div class="aaq-question-list-item swiper-slide">
 									<div class="aaq-question-list-item__name">
 										<p><?php echo $pst->post_title; ?></p>
 									</div>
@@ -87,6 +86,10 @@ $show_ethers_status = carbon_get_post_meta(get_queried_object_id(), 'crb_aaq_sho
 								</div>
 							<?php endforeach; ?>
 						</div>
+                        <button class="slick-prev slick-arrow">Previous</button>
+                        <button class="slick-next slick-arrow">Next</button>
+                        <div class="slick-dots"></div>
+                    </div>
 					<?php endif; ?>
 				<?php endif; ?>
 

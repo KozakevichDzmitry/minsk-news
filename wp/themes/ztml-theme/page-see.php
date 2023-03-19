@@ -2,7 +2,6 @@
 
 <?php require_once(COMPONENTS_PATH . 'topic-bar.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'pdf-attachments.php'); ?>
-<?php require_once(COMPONENTS_PATH . 'pdf-attachments.php'); ?>
 
 <?php require_once(COMPONENTS_PATH . 'icons/advertising-icon.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'icons/share-icon.php'); ?>

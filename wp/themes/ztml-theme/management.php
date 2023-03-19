@@ -23,7 +23,7 @@
 <?php $managers = carbon_get_post_meta(get_queried_object_id(), 'crb_manager_description'); ?>
 
 <div class="adfox-banner-background">
-	<?php render_adv('page', get_the_ID(), 'background'); ?>
+	<?php render_adv('page', $page_id, 'background'); ?>
 </div>
 <main class="managment">
 	<div class="container container_adv"><?php render_adv('page', $page_id, 'before_main'); ?></div>

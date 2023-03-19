@@ -35,28 +35,28 @@
 $show_count = 27;
 $load_count = 27;
 
-$meri_args = array(
+$event_args = array(
 	'post_status' => 'publish',
 	'posts_per_page' => $show_count,
-	'post_type' => 'meri',
+	'post_type' => 'event',
 );
 
-$meri_posts = get_posts($meri_args);
-$count_posts = wp_count_posts('authors-column')->publish;
+$event_posts = get_posts($event_args);
+$count_posts = wp_count_posts('event')->publish;
 
 ?>
 
 <?php
 $first_post_id = get_posts(array(
 	'numberposts' => 1,
-	'post_type' => 'meri',
+	'post_type' => 'event',
 	'post_status' => 'publish',
 	'order' => 'DESC'
 ))[0]->ID;
 
 $last_post_id = get_posts(array(
 	'numberposts' => 1,
-	'post_type' => 'meri',
+	'post_type' => 'event',
 	'post_status' => 'publish',
 	'order' => 'ASC'
 ))[0]->ID;

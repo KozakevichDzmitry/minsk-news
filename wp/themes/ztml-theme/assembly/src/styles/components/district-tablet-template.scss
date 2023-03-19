@@ -268,19 +268,6 @@
         }
       }
     }
-
-    .district-tablet__pagination{
-      display: block;
-      position: absolute;
-      left: 0;
-      text-align: center;
-
-      .swiper-pagination-bullet-active{
-        background: #214972;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      }
-    }
-
     .districts-list {
       display: none;
     }

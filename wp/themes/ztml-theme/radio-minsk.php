@@ -46,14 +46,14 @@ $vfat = array(
 <?php get_header(); ?>
 
 <div class="adfox-banner-background">
-	<?php render_adv('page', get_the_ID(), 'background'); ?>
+	<?php render_adv('page', $page_id, 'background'); ?>
 </div>
-<main id="radio-misk" class="radio-misk">
-	<div class="container container_adv"><?php render_adv('page', get_the_ID(), 'before_main'); ?></div>
+<main id="radio-minsk" class="radio-minsk">
+	<div class="container container_adv"><?php render_adv('page', $page_id, 'before_main'); ?></div>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">
-				<div style="display: flex; align-items: center; justify-content: space-between;">
+				<div style="display: flex; align-items: center; justify-content: space-between; padding: 0;">
 					<?php render_topic_bar(get_the_title(), false); ?>
 					<div class="radio-player" id="radio-min-player">
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/radio-minsk/radio.png" alt="radio" data-src="<?php echo get_stylesheet_directory_uri() . '/assets/images/radio-minsk/radio-p.jpg'; ?>">
@@ -63,7 +63,7 @@ $vfat = array(
 					</div>
 				</div>
 				<div class="mob-container">
-					<div class="radio-misk-info">
+					<div class="radio-minsk-info">
 						<div class="image">
 							<img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', TRUE); ?>">
 						</div>
@@ -100,26 +100,31 @@ $vfat = array(
 							<?php echo carbon_get_the_post_meta('program_title') ?>
 						</div>
 						<div class="programs-list">
-							<div class="card-list">
+							<div class="programs-wrapper card-list swiper-wrapper">
 								<?php foreach (get_posts(array(
 									'post_type' => 'programs',
 									'posts_per_page' => 30,
 									'order' => 'ASC'
 								)) as $pst) : ?>
-									<div class="card-item">
-										<div class="card-item__image">
-											<img src="<?php echo get_the_post_thumbnail_url($pst->ID) ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($pst->ID), '_wp_attachment_image_alt', TRUE); ?>" />
-										</div>
-										<div class="card-item__title">
-											<?php echo get_the_title($pst->ID) ?>
-										</div>
-										<div class="card-item__subtitle">
-											<?php echo carbon_get_post_meta($pst->ID, 'subtitle') ?>
-										</div>
-									</div>
+                                <div class="program-card swiper-slide">
+                                    <div class="card-item">
+                                        <div class="card-item__image">
+                                            <img src="<?php echo get_the_post_thumbnail_url($pst->ID) ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($pst->ID), '_wp_attachment_image_alt', TRUE); ?>" />
+                                        </div>
+                                        <div class="card-item__title">
+                                            <?php echo get_the_title($pst->ID) ?>
+                                        </div>
+                                        <div class="card-item__subtitle">
+                                            <?php echo carbon_get_post_meta($pst->ID, 'subtitle') ?>
+                                        </div>
+                                    </div>
+                                </div>
 								<?php endforeach ?>
 							</div>
+                            <div class="programs-list__pagination swiper-pagination"></div>
 						</div>
+                        <div class="programs-arrow-prev swiper-arrow swiper-arrow-prev"></div>
+                        <div class="programs-arrow-next swiper-arrow swiper-arrow-next"></div>
 					</div>
 					<div id="contacts" class="contacts">
 						<div class="contacts-list">
@@ -152,32 +157,37 @@ $vfat = array(
 						</div>
 						<?php $team = carbon_get_the_post_meta('crb_radio_minsk_team'); ?>
 						<div class="team-list">
-							<div class="card-list">
+							<div class="team-wrapper card-list swiper-wrapper">
 								<?php foreach ($team as $member) : ?>
-									<div class="card-item">
-										<div class="card-item__image">
-											<img src="<?php echo $member['crb_radio_minsk_member_photo']; ?>" />
-										</div>
-										<div class="card-item__content">
-											<div class="card-item__title">
+                                <div class="team-card swiper-slide">
+                                    <div class="card-item">
+                                        <div class="card-item__image">
+                                            <img src="<?php echo $member['crb_radio_minsk_member_photo']; ?>" />
+                                        </div>
+                                        <div class="card-item__content">
+                                            <div class="card-item__title">
 												<span>
 													<?php echo $member['crb_radio_minsk_member_fio']; ?>
 												</span>
-											</div>
-											<div class="card-item__subtitle">
+                                            </div>
+                                            <div class="card-item__subtitle">
 												<span>
 													<?php echo $member['crb_radio_minsk_member_short']; ?>
 												</span>
-											</div>
-										</div>
-									</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 								<?php endforeach; ?>
 							</div>
+                            <div class="team-list__pagination swiper-pagination"></div>
 						</div>
-						<div id="advertising">
-							<a class="radio-minsk__btn" href="<?php echo get_home_url(). '/reklama/#price-list-5'; ?>">Разместить рекламу</a>
-						</div>
+                        <div class="team-arrow-prev swiper-arrow swiper-arrow-prev"></div>
+                        <div class="team-arrow-prev swiper-arrow swiper-arrow-next"></div>
 					</div>
+                    <div id="advertising">
+                        <a class="radio-minsk__btn" href="<?php echo get_home_url(). '/reklama/#price-list-5'; ?>">Разместить рекламу</a>
+                    </div>
 				</div>
 			</div>
 			<div class="second-content">

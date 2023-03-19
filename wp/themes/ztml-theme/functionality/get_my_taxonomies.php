@@ -7,5 +7,6 @@ function get_my_taxonomies($post_ID)
         if (in_array('news-list', $taxonomies)) $term = 'news-list';
         else $term = array_shift($taxonomies);
     }
-    return $term;
+    if(isset($term)) return $term;
+    return '';
 }

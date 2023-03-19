@@ -1,3 +1,4 @@
+import '../../components/category-slider.js'
 jQuery(document).ready(function ($) {
 	const loadBtnEl = $(".load-moree-btn");
 
@@ -100,16 +101,5 @@ jQuery(document).ready(function ($) {
 				}
 			);
 		},
-	});
-});
-
-jQuery(document).ready(function ($) {
-	$(".category-select-slider .slider-container").slick({
-		infinite: true,
-		slidesToShow: 5,
-		slidesToScroll: 1,
-		variableWidth: true,
-		swipe: true,
-		swipeToSlide: true,
 	});
 });

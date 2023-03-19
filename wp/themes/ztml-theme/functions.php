@@ -128,28 +128,27 @@ function page_scripts()
 
     if (is_front_page()) {
         calendar_register();
-        wp_enqueue_style('swiper-css', get_template_directory_uri() . '/assembly/src/libs/swiper/swiper.css', null, null);
-        wp_enqueue_script('swiper-old', get_template_directory_uri() . '/assembly/src/libs/swiper/swiper-old.min.js', array('jquery'), null, true);
-        wp_enqueue_script('home', get_template_directory_uri() . '/assets/js/home.min.js', array('jquery', 'jquery-ui', 'swiper-old', 'calendar'), _S_VERSION, true);
+        swiper_register();
+        wp_enqueue_script('home', get_template_directory_uri() . '/assets/js/home.min.js', array('jquery', 'jquery-ui', 'swiper', 'calendar'), _S_VERSION, true);
         wp_enqueue_script('autoban-lib', 'https://cdnjs.cloudflare.com/ajax/libs/autobahn/20.9.2/autobahn.min.js', null, null, true);
         wp_enqueue_script('sockets', get_template_directory_uri() . '/assets/js/sockets.min.js', array('jquery', 'autoban-lib'), _S_VERSION, true);
     } else {
         if ($template === 'about.php') {
             wp_enqueue_script('countUp', get_template_directory_uri() . '/assembly/src/libs/countup/countUp.min.js', array('jquery'), _S_VERSION, true);
-            wp_enqueue_script('about-page', get_template_directory_uri() . '/assets/js/pages/about.min.js', array('jquery', 'countUp'), _S_VERSION, true);
+            wp_enqueue_script('about-page', get_template_directory_uri() . '/assets/js/about.min.js', array('jquery', 'countUp'), _S_VERSION, true);
         } elseif ($template == 'all-news.php') {
             calendar_register();
-            slick_register();
-            wp_enqueue_script('all-news', get_template_directory_uri() . '/assets/js/all-news.min.js', array('jquery', 'slick-min'), _S_VERSION, true);
+            swiper_register();
+            wp_enqueue_script('all-news', get_template_directory_uri() . '/assets/js/all-news.min.js', array('jquery', 'swiper'), _S_VERSION, true);
         } elseif ($template == 'all-videos.php') {
             calendar_register();
             wp_enqueue_script('all-videos', get_template_directory_uri() . '/assets/js/all-videos.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == 'appeal.php') {
             wp_enqueue_script('appeal-page', get_template_directory_uri() . '/assets/js/appeal.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == 'ask-a-question.php') {
-            wp_enqueue_script('main-external', get_template_directory_uri() . '/assets/js/components/eternal-video.min.js', array('jquery'), _S_VERSION, true);
-            wp_enqueue_script('aaq', get_template_directory_uri() . '/assets/js/aaq.min.js', array('jquery'), _S_VERSION, true);
-            slick_register();
+//            wp_enqueue_script('eternal-video', get_template_directory_uri() . '/assets/js/eternal-video.min.js', array('jquery'), _S_VERSION, true);
+            swiper_register();
+            wp_enqueue_script('aaq', get_template_directory_uri() . '/assets/js/aaq.min.js', array('jquery', 'swiper'), _S_VERSION, true);
         } elseif ($template == 'author.php') {
             calendar_register();
             wp_enqueue_script('author-page', get_template_directory_uri() . '/assets/js/author.min.js', array('jquery'), _S_VERSION, true);
@@ -160,15 +159,17 @@ function page_scripts()
             calendar_register();
             wp_enqueue_script('cae', get_template_directory_uri() . '/assets/js/cae.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == 'events.php') {
-            slick_register();
-            wp_enqueue_script('events.js', get_template_directory_uri() . '/assets/js/events.min.js', array('jquery'), _S_VERSION, true);
+            //нет такой стрицы
+//            slick_register();
+            swiper_register();
+            wp_enqueue_script('events.js', get_template_directory_uri() . '/assets/js/events.min.js', array('jquery', 'swiper'), _S_VERSION, true);
         } elseif ($template == 'management.php') {
             wp_enqueue_script('management', get_template_directory_uri() . '/assets/js/management.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == 'page-advertisement.php') {
             wp_enqueue_script('advertisement', get_template_directory_uri() . '/assets/js/advertisement.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == 'radio-minsk.php') {
-            slick_register();
-            wp_enqueue_script('radio-minsk-page', get_template_directory_uri() . '/assets/js/radio-minsk.min.js', array('jquery', 'slick-min'), _S_VERSION, true);
+            swiper_register();
+            wp_enqueue_script('radio-minsk-page', get_template_directory_uri() . '/assets/js/radio-minsk.min.js', array('jquery', 'swiper'), _S_VERSION, true);
         } elseif ($template == 'satms.php') {
             wp_enqueue_script('satms', get_template_directory_uri() . '/assets/js/satms.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == "single-authors-column.php") {

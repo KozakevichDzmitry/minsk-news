@@ -38,7 +38,7 @@ function render_author_columns_template()
 					<?php render_author_column_slider_card($slide_data); ?>
 				<?php endforeach; ?>
 			</div>
-			<div class="swiper-pagination"></div>
+            <div class="swiper-pagination author_column__pagination"></div>
 		</div>
 	</div>
 <?php

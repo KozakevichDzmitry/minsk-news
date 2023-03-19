@@ -25,7 +25,7 @@ function render_district_news_template()
 				); ?>
 			<?php endforeach; ?>
 		</div>
-        <div class="district-tablet__pagination"></div>
+        <div class="swiper-pagination district-tablet__pagination"></div>
         <div class="districts-list">
 			<ul>
 				<?php foreach ($districts as $id => $district) : ?>

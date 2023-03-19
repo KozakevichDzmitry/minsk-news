@@ -23,14 +23,14 @@ jQuery(document).ready(function ($) {
                 slideClass: 'district-item',
                 slideActiveClass: 'active',
                 slidesPerView: 1,
-                pagination: ".district-tablet__pagination",
                 paginationClickable: true,
                 clickable: true,
                 loop: false,
                 centeredSlides: true,
                 initialSlide: initialSlide,
-                paginationBulletRender: function (index, className) {
-                    return '<span class="swiper-pagination-bullet"></span>';
+                pagination: {
+                    el: '.district-tablet__pagination',
+                    type: 'bullets',
                 },
             });
             swiper.on('slideChangeEnd', slideChangeEvent);

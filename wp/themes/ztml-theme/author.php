@@ -19,7 +19,7 @@ $meri_args = array(
 );
 
 $meri_posts = get_posts($meri_args);
-$count_posts = count_user_posts( $author_ID , 'any' );
+$count_posts = count_user_posts( $author_ID , ['news','video','authors-column'], true );
 
 ?>
 

@@ -20,10 +20,10 @@
 <?php require_once(COMPONENTS_PATH . "adv.php"); ?>
 <?php $page_id = $post->ID; ?>
 <div class="adfox-banner-background">
-	<?php render_adv('page', get_the_ID(), 'background'); ?>
+	<?php render_adv('page', $page_id, 'background'); ?>
 </div>
 <main class="page advertisement">
-	<div class="container container_adv"><?php render_adv('page', get_the_ID(), 'before_main'); ?></div>
+	<div class="container container_adv"><?php render_adv('page', $page_id, 'before_main'); ?></div>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">
@@ -32,7 +32,7 @@
 					<?php the_content(); ?>
 				</div>
 				<div class="price-list">
-					<?php $i=0; foreach (carbon_get_post_meta(get_the_ID(), 'page_advertisement_block') as $acc) : $i++?>
+					<?php $i=0; foreach (carbon_get_post_meta($page_id, 'page_advertisement_block') as $acc) : $i++?>
 						<div class="acc-item">
 							<span class="acc-title acc-btn" id="price-list-<?php echo $i;?>">
 								<span>

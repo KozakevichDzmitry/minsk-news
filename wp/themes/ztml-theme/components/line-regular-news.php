@@ -10,11 +10,15 @@ require_once(COMPONENTS_PATH . 'content-exist-markers.php');
 
 function render_line_regular_news($post_ID)
 {
-    $cat_link = home_url();
-    $cat_link .= '/';
-    $cat_link .= get_post_primary_category($post_ID, get_my_taxonomies($post_ID))['primary_category']->taxonomy;
-    $cat_link .= '/';
-    $cat_link .= get_post_primary_category($post_ID, get_my_taxonomies($post_ID))['primary_category']->slug;
+    $taxonomies = get_my_taxonomies($post_ID);
+    if(!empty($taxonomies)){
+        $primary_category = get_post_primary_category($post_ID, $taxonomies)['primary_category'];
+        $cat_link = home_url();
+        $cat_link .= '/';
+        $cat_link .= $primary_category->taxonomy;
+        $cat_link .= '/';
+        $cat_link .= $primary_category->slug;
+    }
     ?>
     <div class="line-regular-news">
         <?php $img_url = get_the_post_thumbnail_url($post_ID, 'full'); ?>
@@ -27,17 +31,19 @@ function render_line_regular_news($post_ID)
         <?php endif; ?>
         <div class="content">
             <div class="content-header">
-                <a href="<?php echo $cat_link; ?>" class="tags__link">
-                    <?php $exist_markers = render_content_exist_markers($post_ID); ?>
-                <?php if($exist_markers): ?>
-                    <div class="content-exist">
-                        <?php  echo $exist_markers; ?>
-                    </div>
-                <?php endif;?>
-                <span class="news-cat">
-					<?php echo get_post_primary_category($post_ID, get_my_taxonomies($post_ID))['primary_category']->name; ?>
-                </span>
-                </a>
+                <?php if(isset($cat_link)): ?>
+                    <a href="<?php echo $cat_link; ?>" class="tags__link">
+                        <?php $exist_markers = render_content_exist_markers($post_ID); ?>
+                        <?php if ($exist_markers): ?>
+                            <div class="content-exist">
+                                <?php echo $exist_markers; ?>
+                            </div>
+                        <?php endif; ?>
+                        <span class="news-cat">
+                        <?php echo $primary_category->name; ?>
+                        </span>
+                    </a>
+                <?php endif; ?>
             </div>
             <div class="content-container">
                 <a class="content__description" href="<?php echo esc_url(get_permalink($post_ID)); ?>">
@@ -52,9 +58,9 @@ function render_line_regular_news($post_ID)
                     </div>
                     <?php $is_advertising = carbon_get_post_meta($post_ID, 'news_is_advertising'); ?>
                     <?php if ($is_advertising) : ?>
-                    <div class="advertising-marker">
-                        <?php render_advertising_icon(); ?>
-                    </div>
+                        <div class="advertising-marker">
+                            <?php render_advertising_icon(); ?>
+                        </div>
                     <?php endif; ?>
                 </div>
                 <div class="share-block--fold">

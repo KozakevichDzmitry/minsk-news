@@ -14,10 +14,10 @@ function render_category_slider()
     ) );
 ?>
 	<div class="category-select-slider">
-		<div class="slider-container">
+		<div class="slider-container swiper-wrapper">
 			<?php
             foreach ($categories as $cat) : ?>
-				<a class="category-select-btn" href="<?php echo get_category_link($cat->term_id); ?>">
+				<a class="category-select-btn swiper-slide" href="<?php echo get_category_link($cat->term_id); ?>">
 					<?php echo $cat->name; ?>
 				</a>
 			<?php endforeach; ?>

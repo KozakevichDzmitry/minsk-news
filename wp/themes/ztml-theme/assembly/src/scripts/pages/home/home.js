@@ -116,34 +116,39 @@ jQuery(document).ready(function ($) {
 	observer.observe(lastPost);
 });
 jQuery(document).ready(function ($) {
+
 	if ($('.swiper-container.two').length) new Swiper(".swiper-container.two", {
-		pagination: ".swiper-pagination",
-		paginationClickable: true,
 		clickable: true,
-		paginationBulletRender: function (index, className) {
-			return '<span class="swiper-pagination-bullet"></span>';
-		},
 		effect: "coverflow",
 		autoHeight: false,
 		loop: false,
 		centeredSlides: true,
-		slidesPerView: 'auto',
-		spaceBetween: 0,
-		initialSlide: 2,
-		coverflow: {
-			rotate: 0,
-			stretch: 100,
-			depth: 0,
-			modifier: 1.5,
-			slideShadows: false,
+		slidesPerView: 1,
+		spaceBetween: 22,
+		initialSlide: 3,
+		pagination: {
+			el: '.author_column__pagination',
+			type: 'bullets',
 		},
+		coverflowEffect: {
+			rotate: 0,
+			stretch: 0,
+			depth: 0,
+			modifier: 1,
+			slideShadows : true,
+		},
+
 		breakpoints: {
 			576: {
-				spaceBetween: 700,
-			},
-			768: {
-				initialSlide: 1,
 				spaceBetween: 0,
+				coverflowEffect: {
+					rotate: 0, // Slide rotate in degrees
+					stretch: 150, // Stretch space between slides (in px)
+					depth: 50, // Depth offset in px (slides translate in Z axis)
+					modifier: 1, // Effect multipler
+					slideShadows : true, // Enables slides shadows
+				},
+				slidesPerView: 'auto',
 			},
 		},
 	});

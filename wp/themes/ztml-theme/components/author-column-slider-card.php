@@ -14,7 +14,7 @@ function render_author_column_slider_card($post_data)
 		</div>
 		<div class="author-column-slider-card__image">
             <a href="<?php echo get_author_posts_url($post_data->post_author); ?>">
-                <?php echo wp_get_attachment_image($avatar_id, [218, 189]); ?>
+                <?php echo wp_get_attachment_image($avatar_id, [218, 218]); ?>
             </a>
 		</div>
 		<?php render_author_column_post_slide($post_data); ?>

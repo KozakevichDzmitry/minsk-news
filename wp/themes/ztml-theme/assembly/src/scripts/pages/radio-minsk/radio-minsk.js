@@ -1,78 +1,75 @@
-jQuery(document).ready(function ($) {
-    $("#programs .programs-list .card-list").slick({
-        dots: true,
-        infinite: false,
+window.onload = () => {
+    new Swiper('.programs-list', {
+        wrapperClass: 'programs-wrapper',
+        slideClass: 'program-card',
         speed: 300,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true,
-                },
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    arrows: false,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    arrows: false,
-                },
-            },
-        ],
-    });
+        slidesPerView: 1,
+        centeredSlides: true,
+        grabCursor: true,
+        pagination: {
+            el: '.programs-list__pagination',
+            type: 'bullets',
+        },
+        navigation: {
+            nextEl: '.programs-arrow-next',
+            prevEl: '.programs-arrow-prev',
+        },
+        breakpoints: {
+            680: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                centeredSlides: false,
 
-    $("#team .team-list .card-list").slick({
-        arrows: true,
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        centerMode: true,
-        centerPadding: "60px",
-        adaptiveHeight: true,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true,
-                },
             },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    arrows: false,
-                },
+            768: {
+                slidesPerView: 1,
+                centeredSlides: true,
+
             },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    arrows: false,
-                },
+            959: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                centeredSlides: false,
             },
-        ],
+        }
     });
-});
+    new Swiper('.team-list', {
+        wrapperClass: 'team-wrapper',
+        slideClass: 'team-card',
+        speed: 300,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        centeredSlides: true,
+        grabCursor: true,
+        pagination: {
+            el: '.team-list__pagination',
+            type: 'bullets',
+        },
+        navigation: {
+            nextEl: '.team-arrow-next',
+            prevEl: '.team-arrow-prev',
+        },
+        breakpoints: {
+            681: {
+                slidesPerView: 2,
+                centeredSlides: false,
+            },
+            769: {
+                slidesPerView: 1,
+                centeredSlides: true,
+            },
+            980: {
+                slidesPerView: 2,
+                centeredSlides: false,
+            },
+            1100: {
+                slidesPerView: 3,
+                centeredSlides: true,
+                initialSlide: 1,
+            },
+        }
+    });
+}
 
 jQuery(document).ready(function ($) {
     const erp = $("#radio-min-player");

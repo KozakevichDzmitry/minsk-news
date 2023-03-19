@@ -16,24 +16,24 @@
 <?php require_once(COMPONENTS_PATH . 'news-templates/most-read-news-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . "adv.php"); ?>
 <?php $page_id = $post->ID; ?>
-
+<?php $object_id = get_queried_object_id(); ?>
 
 <?php get_header(); ?>
-
+    object_id
 <?php
 
-$title = carbon_get_post_meta(get_queried_object_id(), 'crb_title');
+$title = carbon_get_post_meta($object_id, 'crb_title');
 
-$services_caption = carbon_get_post_meta(get_queried_object_id(), 'crb_services_caption');
-$services_list = carbon_get_post_meta(get_queried_object_id(), 'crb_printing_services');
+$services_caption = carbon_get_post_meta($object_id, 'crb_services_caption');
+$services_list = carbon_get_post_meta($object_id, 'crb_printing_services');
 
 
-$contacts_caption = carbon_get_post_meta(get_queried_object_id(), 'crb_contacts_caption');
-$contacts_list = carbon_get_post_meta(get_queried_object_id(), 'crb_contacts');
+$contacts_caption = carbon_get_post_meta($object_id, 'crb_contacts_caption');
+$contacts_list = carbon_get_post_meta($object_id, 'crb_contacts');
 ?>
 
 <div class="adfox-banner-background">
-	<?php render_adv('page', get_the_ID(), 'background'); ?>
+	<?php render_adv('page', $page_id, 'background'); ?>
 </div>
 <main class="printing">
 	<div class="container container_adv"><?php render_adv('page', $page_id, 'before_main'); ?></div>

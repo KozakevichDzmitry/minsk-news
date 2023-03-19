@@ -16,10 +16,10 @@
 <?php get_header(); ?>
 
 <div class="adfox-banner-background">
-	<?php render_adv('page', get_the_ID(), 'background'); ?>
+	<?php render_adv('page', $page_id, 'background'); ?>
 </div>
 <main class="exchange-rates">
-	<div class="container container_adv"><?php render_adv('page', get_the_ID(), 'before_main'); ?></div>
+	<div class="container container_adv"><?php render_adv('page', $page_id, 'before_main'); ?></div>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">
