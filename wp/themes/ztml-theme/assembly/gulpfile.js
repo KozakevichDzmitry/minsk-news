@@ -100,6 +100,7 @@ const entryPoints = {
     'single-event': './src/scripts/pages/single-event/index.js',
     'single-news': './src/scripts/pages/single-news/index.js',
     'single-satm': './src/scripts/pages/single-satm/index.js',
+    'take-action': './src/scripts/pages/take-action/index.js',
     'taxonomy-news-list': './src/scripts/pages/taxonomy-news-list/index.js',
     'taxonomy-newspapers': './src/scripts/pages/taxonomy-newspapers/index.js',
     'taxonomy-videos': './src/scripts/pages/taxonomy-newspapers/index.js',
