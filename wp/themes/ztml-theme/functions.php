@@ -10,7 +10,7 @@ define('COMPONENTS_PATH', dirname(__FILE__) . '/components/');
 define('FUNC_PATH', dirname(__FILE__) . '/functionality/');
 define('REQUEST_HANDLERS', dirname(__FILE__) . '/request-handlers/');
 define('IMAGES_PATH', dirname(__FILE__) . '/assets/images/');
-define('LIBS_PATH', dirname(__FILE__) . '/libs/');
+define('LIBS_PATH', get_template_directory_uri() . '/assembly/src/libs/');
 define('WIDGETS_PATH', dirname(__FILE__) . '/widget-templates/');
 define('SHORTCODES_PATH', dirname(__FILE__) . '/shortcodes/');
 if( strpos( $_SERVER['HTTP_ACCEPT'], 'image/webp' ) !== false || strpos( $_SERVER['HTTP_USER_AGENT'], ' Chrome/' ) !== false ) {
@@ -134,7 +134,7 @@ function page_scripts()
         wp_enqueue_script('sockets', get_template_directory_uri() . '/assets/js/sockets.min.js', array('jquery', 'autoban-lib'), _S_VERSION, true);
     } else {
         if ($template === 'about.php') {
-            wp_enqueue_script('countUp', get_template_directory_uri() . '/assembly/src/libs/countup/countUp.min.js', array('jquery'), _S_VERSION, true);
+            wp_enqueue_script('countUp', LIBS_PATH . 'countup/countUp.min.js', array('jquery'), _S_VERSION, true);
             wp_enqueue_script('about-page', get_template_directory_uri() . '/assets/js/about.min.js', array('jquery', 'countUp'), _S_VERSION, true);
         } elseif ($template == 'all-news.php') {
             calendar_register();
@@ -215,49 +215,35 @@ function page_scripts()
 
 function swiper_register()
 {
-    wp_enqueue_style('swiper', get_template_directory_uri() . '/assembly/src/libs/swiper/swiper.css');
-    wp_enqueue_script('swiper', get_template_directory_uri() . '/assembly/src/libs/swiper/swiper.js', array('jquery'));
+    wp_enqueue_style('swiper', LIBS_PATH . 'swiper/swiper.css');
+    wp_enqueue_script('swiper', LIBS_PATH . 'swiper/swiper.js', array('jquery'));
 }
 function lightbox_register(){
-    wp_enqueue_style('lightbox', get_template_directory_uri() . '/libs/lightbox/css/lightbox.min.css');
-    wp_enqueue_script('lightbox', get_template_directory_uri() . '/libs/lightbox/js/lightbox.min.js', array('jquery'), null, true);
+    wp_enqueue_style('lightbox', LIBS_PATH . 'lightbox/css/lightbox.min.css');
+    wp_enqueue_script('lightbox', LIBS_PATH . 'lightbox/js/lightbox.min.js', array('jquery'), null, true);
 }
 function sticky_sidebar_register()
 {
-    wp_enqueue_script('sticky-sidebar', get_template_directory_uri() . '/assembly/src/libs/sticky-sidebar/sticky-sidebar.min.js', array('jquery'), null, true);
+    wp_enqueue_script('sticky-sidebar', LIBS_PATH . 'sticky-sidebar/sticky-sidebar.min.js', array('jquery'), null, true);
     wp_enqueue_script('sidebar', get_template_directory_uri() . '/assets/js/sidebar.min.js', array('jquery, sticky-sidebar'),  _S_VERSION, true);
 }
 
 function slick_register()
 {
-    wp_enqueue_style('slick-css', get_template_directory_uri() . '/assembly/src/libs/slick/slick.css');
-    wp_enqueue_style('slick-theme-css', get_template_directory_uri() . '/assembly/src/libs/slick/slick-theme.css');
-    wp_enqueue_script('slick-min', get_template_directory_uri() . '/assembly/src/libs/slick/slick.min.js', array('jquery'));
-}
-
-function slick_lightbox_register()
-{
-    wp_enqueue_style('slick-lightbox-css', get_template_directory_uri() . '/assembly/src/libs/slick-lightbox/slick-lightbox.css');
-    wp_enqueue_script('slick-lightbox-min', get_template_directory_uri() . '/assembly/src/libs/slick-lightbox/slick-lightbox.min.js', array('jquery'));
+    wp_enqueue_style('slick-css', LIBS_PATH . 'slick/slick.css');
+    wp_enqueue_style('slick-theme-css',  LIBS_PATH . 'slick/slick-theme.css');
+    wp_enqueue_script('slick-min',  LIBS_PATH . 'slick/slick.min.js', array('jquery'));
 }
 
 function calendar_register()
 {
     wp_enqueue_script('jquery-ui', 'https://code.jquery.com/ui/1.13.2/jquery-ui.min.js', array('jquery'), null, true);
-    wp_enqueue_script('datepicker-ru', get_template_directory_uri() . '/assembly/src/libs/datepicker-ru/datepicker-ru.js', array('jquery-ui', 'jquery'), null, true);
+    wp_enqueue_script('datepicker-ru',  LIBS_PATH . 'datepicker-ru/datepicker-ru.js', array('jquery-ui', 'jquery'), null, true);
     wp_enqueue_script('calendar', get_stylesheet_directory_uri() . '/assets/js/calendar.min.js', array('jquery-ui', 'datepicker-ru'), null, true);
 }
 
 add_action('wp_enqueue_scripts', 'page_scripts');
-add_action('admin_head', function ()
-{
-    echo '<style>
-    .cf-container__tabs-item--current {
-  border-bottom-color: #dc1d1d!important;
-}
-
-  </style>';
-});
+add_action('admin_head', function () {echo '<style>.cf-container__tabs-item--current {border-bottom-color: #dc1d1d!important;}</style>';});
 // Allow SVG
 add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes) {
 
@@ -290,7 +276,6 @@ add_action('admin_head', function ()
 });
 add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes, $real_mime = '')
 {
-
     // WP 5.1 +
     if (version_compare($GLOBALS['wp_version'], '5.1.0', '>=')) {
         $dosvg = in_array($real_mime, ['image/svg', 'image/svg+xml']);
