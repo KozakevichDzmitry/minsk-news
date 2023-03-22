@@ -42,9 +42,9 @@ $daysFull = array('Понедельник', 'Вторник', 'Среда', 'Ч�
 				<div class="mob-container">
 					<div class="tv-controls">
 						<div class="tv-controls__day-select">
-							<ul class="day-select-list">
+							<ul class="day-select-list swiper-wrapper">
 								<?php foreach ($days as $n => $day) : ?>
-									<li class="day-select-item">
+									<li class="day-select-item swiper-slide">
 										<?php if ($n == ($currentNumDay - 1)) : ?>
 											<button class="selected">
 												<?php echo $day . ',' . date('d', strtotime("$currentDate +{$n} day")); ?>
@@ -57,6 +57,7 @@ $daysFull = array('Понедельник', 'Вторник', 'Среда', 'Ч�
 									</li>
 								<?php endforeach; ?>
 							</ul>
+                            <div class="day-select-list__pagination swiper-pagination"></div>
 						</div>
 						<div class="select-channel">
 							<button>Выбрать канал</button>

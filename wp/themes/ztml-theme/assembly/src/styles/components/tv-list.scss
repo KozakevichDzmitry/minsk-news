@@ -2,6 +2,9 @@
 	display: flex;
 	gap: 10px;
 	flex-flow: row wrap;
+	@media (max-width: 480px) {
+		flex-direction: column !important;
+	}
 }
 
 .tv-programm-list {
@@ -33,7 +36,11 @@
 				display: flex;
 				gap: 10px;
 				align-items: center;
-
+				&__icon img{
+					max-width: 55px;
+					max-height: 30px;
+					vertical-align: middle;
+				}
 				&__title {
 					font-family: "Noto Sans";
 					font-style: normal;

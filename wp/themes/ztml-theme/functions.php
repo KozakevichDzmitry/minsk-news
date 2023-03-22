@@ -2,7 +2,6 @@
 
 // Все работает?
 require_once(__DIR__ . '/vendor/autoload.php');
-require_once(__DIR__ . "/tv-parser.php");
 
 use ZMQContext as ZMQC;
 
@@ -70,6 +69,7 @@ require_once(REQUEST_HANDLERS . 'load_posts.php');
 require_once(REQUEST_HANDLERS . 'taxonomy-videos-posts.php');
 require_once(REQUEST_HANDLERS . 'ethers-posts.php');
 require_once(REQUEST_HANDLERS . 'web-sockets.php');
+require_once(__DIR__ . "/tv-parser.php");
 require_once(REQUEST_HANDLERS . 'tv-program.php');
 
 require_once(SHORTCODES_PATH . 'extrenal-radio-player.php');
@@ -203,9 +203,8 @@ function page_scripts()
             calendar_register();
             wp_enqueue_script('taxonomy-videos', get_template_directory_uri() . '/assets/js/taxonomy-videos.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == 'tv-programme.php') {
-            slick_register();
-            wp_enqueue_script('accordion-components', get_template_directory_uri() . '/assets/js/components/accordion.min.js', array('jquery'), _S_VERSION, true);
-            wp_enqueue_script('tv-programme-page', get_template_directory_uri() . '/assets/js/tv-programms.min.js', array('jquery'), _S_VERSION, true);
+            swiper_register();
+            wp_enqueue_script('tv-programme-page', get_template_directory_uri() . '/assets/js/tv-programme.min.js', array('jquery', 'swiper'), _S_VERSION, true);
         } elseif ($template == "your-district.php") {
             swiper_register();
             wp_enqueue_script('your-district-page', get_template_directory_uri() . '/assets/js/your-district.min.js', array('jquery', 'swiper'), _S_VERSION, true);
