@@ -71,7 +71,6 @@ require_once(REQUEST_HANDLERS . 'loadmore.php');
 require_once(REQUEST_HANDLERS . 'load_posts.php');
 require_once(REQUEST_HANDLERS . 'taxonomy-videos-posts.php');
 require_once(REQUEST_HANDLERS . 'ethers-posts.php');
-require_once(REQUEST_HANDLERS . 'web-sockets.php');
 require_once(__DIR__ . "/tv-parser.php");
 require_once(REQUEST_HANDLERS . 'tv-program.php');
 
