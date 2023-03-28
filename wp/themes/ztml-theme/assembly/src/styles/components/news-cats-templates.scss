@@ -345,7 +345,19 @@
     }
   }
 }
-
+.second-content {
+  .top-three-news{
+    .news-template-line{
+      >a{
+        height: 177px;
+        overflow: hidden;
+      }
+      .post-container{
+        height: calc(100% - 177px);
+      }
+    }
+  }
+}
 @media (max-width: 768px) {
   .main-news-cat.box-line-gap {
     .main-news-list .box-column-gap {
