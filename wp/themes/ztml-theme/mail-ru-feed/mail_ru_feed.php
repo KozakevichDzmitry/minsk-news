@@ -10,5 +10,5 @@ function customRSS()
 
 function customRSSFunc()
 {
-    require_once(get_template_directory_uri() . '/mail-ru-feed/rss-mail-ru.php');
+    require_once(dirname(__FILE__) . '/mail-ru-feed/rss-mail-ru.php');
 }
