@@ -495,16 +495,6 @@ footer .footer__content aside ul.menu .menu-item {
   }
 }
 
-.pdf-attachments .pdf-attachments-item__download-link {
-  &:hover {
-    color: $black-color;
-  }
-
-  &:focus {
-    color: rgba(16, 16, 16, 0.2);
-  }
-}
-
 header.sticky {
   -webkit-animation-duration: 300ms;
   -moz-animation-duration: 300ms;
