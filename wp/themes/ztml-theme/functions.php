@@ -22,6 +22,8 @@ if (!defined('_S_VERSION')) {
 }
 
 require_once(dirname(__FILE__) . '/gallery/gallery.php');
+require_once(dirname(__FILE__) . '/mail-ru-feed/mail_ru_feed.php');
+require_once(FUNC_PATH . 'allow_svg.php');
 require_once(FUNC_PATH . 'carbon-fields.php');
 require_once(FUNC_PATH . 'events-taxanomy.php');
 require_once(FUNC_PATH . 'newspaper-taxonomy.php');
@@ -45,6 +47,7 @@ require_once(FUNC_PATH . 'get_post_view.php');
 require_once(FUNC_PATH . 'get_my_taxonomies.php');
 require_once(FUNC_PATH . 'get_post_primary_category.php');
 require_once(FUNC_PATH . 'customize_my_wp_admin_bar.php');
+require_once(FUNC_PATH . 'amp_page.php');
 
 require_once(COMPONENTS_PATH . "pdf-attachments.php");
 require_once(COMPONENTS_PATH . 'satms-list-tem.php');
@@ -215,7 +218,7 @@ function page_scripts()
 function swiper_register()
 {
     wp_enqueue_style('swiper', LIBS_PATH . 'swiper/swiper.css');
-    wp_enqueue_script('swiper', LIBS_PATH . 'swiper/swiper.js', array('jquery'));
+    wp_enqueue_script('swiper', LIBS_PATH . 'swiper/swiper.js', array('jquery'), null, true);
 }
 function lightbox_register(){
     wp_enqueue_style('lightbox', LIBS_PATH . 'lightbox/css/lightbox.min.css');
@@ -227,13 +230,6 @@ function sticky_sidebar_register()
     wp_enqueue_script('sidebar', get_template_directory_uri() . '/assets/js/sidebar.min.js', array('jquery, sticky-sidebar'),  _S_VERSION, true);
 }
 
-function slick_register()
-{
-    wp_enqueue_style('slick-css', LIBS_PATH . 'slick/slick.css');
-    wp_enqueue_style('slick-theme-css',  LIBS_PATH . 'slick/slick-theme.css');
-    wp_enqueue_script('slick-min',  LIBS_PATH . 'slick/slick.min.js', array('jquery'));
-}
-
 function calendar_register()
 {
     wp_enqueue_script('jquery-ui', 'https://code.jquery.com/ui/1.13.2/jquery-ui.min.js', array('jquery'), null, true);
@@ -243,64 +239,7 @@ function calendar_register()
 
 add_action('wp_enqueue_scripts', 'page_scripts');
 add_action('admin_head', function () {echo '<style>.cf-container__tabs-item--current {border-bottom-color: #dc1d1d!important;}</style>';});
-// Allow SVG
-add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes) {
 
-    global $wp_version;
-    if ($wp_version !== '4.7.1') {
-        return $data;
-    }
-
-    $filetype = wp_check_filetype($filename, $mimes);
-
-    return [
-        'ext' => $filetype['ext'],
-        'type' => $filetype['type'],
-        'proper_filename' => $data['proper_filename']
-    ];
-}, 10, 4);
-add_filter('upload_mimes', function ($mimes)
-{
-    $mimes['svg'] = 'image/svg+xml';
-    return $mimes;
-});
-add_action('admin_head', function ()
-{
-    echo '<style type="text/css">
-        .attachment-266x266, .thumbnail img {
-    width: 100% !important;
-    height: auto !important;
-        }
-        </style>';
-});
-add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes, $real_mime = '')
-{
-    // WP 5.1 +
-    if (version_compare($GLOBALS['wp_version'], '5.1.0', '>=')) {
-        $dosvg = in_array($real_mime, ['image/svg', 'image/svg+xml']);
-    } else {
-        $dosvg = ('.svg' === strtolower(substr($filename, -4)));
-    }
-
-    // mime тип был обнулен, поправим его
-    // а также проверим право пользователя
-    if ($dosvg) {
-
-        // разрешим
-        if (current_user_can('manage_options')) {
-
-            $data['ext'] = 'svg';
-            $data['type'] = 'image/svg+xml';
-        } // запретим
-        else {
-            $data['ext'] = false;
-            $data['type'] = false;
-        }
-
-    }
-
-    return $data;
-}, 10, 5);
 
 // AJAX загрузка постов
 add_action('wp_ajax_loadmore', 'load_posts');
@@ -314,101 +253,3 @@ add_filter('manage_posts_columns', 'gt_posts_column_views');
 add_action('manage_posts_custom_column', 'gt_posts_custom_column_views');
 
 add_action('admin_bar_menu', 'customize_my_wp_admin_bar', 80);
-
-
-/*
- * Mai Ru Feed
-*/
-add_action('init', 'customRSS');
-function customRSS()
-{
-    add_feed('mail-ru', 'customRSSFunc');
-}
-
-function customRSSFunc()
-{
-    get_template_part('rss', 'mail-ru');
-}
-
-
-// amp page
-add_action('pre_amp_render_post', 'amp_ads_add');
-
-function amp_ads_add()
-{
-    add_filter('the_content', 'insert_ads_to_amp');
-}
-
-function insert_ads_to_amp($content)
-{
-
-    $new_content = ads_add_paragraph(array(
-// формат следующий: 'номер абзаца' => 'рекламный код',
-        '1' => '<amp-ad
-width="auto" 
-height="320"
-layout="fixed-height"
-type="yandex"
-data-block-id="R-A-721996-39"
-data-html-access-allowed="true">
-</amp-ad>',
-        '3' => '<amp-ad
-width="auto" 
-height="320"
-layout="fixed-height"
-type="yandex"
-data-block-id="R-A-721996-52"
-data-html-access-allowed="true">
-</amp-ad>',
-        '5' => '<amp-ad
-width="auto" 
-height="320"
-layout="fixed-height"
-type="yandex"
-data-block-id="R-A-721996-53"
-data-html-access-allowed="true">
-</amp-ad>',
-        '7' => '<amp-ad
-width="auto" 
-height="320"
-layout="fixed-height"
-type="yandex"
-data-block-id="R-A-721996-54"
-data-html-access-allowed="true">
-</amp-ad>',
-        '9' => '<amp-ad
-width="auto" 
-height="320"
-layout="fixed-height"
-type="yandex"
-data-block-id="R-A-721996-55"
-data-html-access-allowed="true">
-</amp-ad>',
-    ), $content);
-
-    return $new_content;
-
-}
-
-function ads_add_paragraph($ads, $content)
-{
-    if (!is_array($ads)) {
-        return $content;
-    }
-
-    $closing_p = '</p>';
-    $paragraphs = explode($closing_p, $content);
-
-    foreach ($paragraphs as $index => $paragraph) {
-        if (trim($paragraph)) {
-            $paragraphs[$index] .= $closing_p;
-        }
-
-        $n = $index + 1;
-        if (isset($ads[$n])) {
-            $paragraphs[$index] .= $ads[$n];
-        }
-    }
-
-    return implode('', $paragraphs);
-}

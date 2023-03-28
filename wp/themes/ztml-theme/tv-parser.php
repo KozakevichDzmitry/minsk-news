@@ -115,8 +115,9 @@ function parse_tv_programm_file($url_path)
 
 function get_day_list($file_name_date)
 {
-	$f_path = __DIR__ . '/output/' . $file_name_date . '.json';
 
+	$f_path = __DIR__ . '/output/' . $file_name_date . '.json';
+    if(!file_exists($f_path)) return null;
 	$fh = fopen($f_path, 'r');
 	$content = json_decode(fread($fh, filesize($f_path)));
 	fclose($fh);

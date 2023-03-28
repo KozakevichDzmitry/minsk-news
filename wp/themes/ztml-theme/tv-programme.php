@@ -31,69 +31,82 @@ $daysFull = array('Понедельник', 'Вторник', 'Среда', 'Ч�
 ?>
 
 <div class="adfox-banner-background">
-	<?php render_adv('page', get_the_ID(), 'background'); ?>
+    <?php render_adv('page', get_the_ID(), 'background'); ?>
 </div>
 <main class="tv-programme">
-	<div class="container container_adv"><?php render_adv('page', $page_id, 'before_main'); ?></div>
-	<div class="container main-container">
-		<div class="content-wrapper">
-			<div class="main-content">
-				<?php render_topic_bar(get_the_title(), false); ?>
-				<div class="mob-container">
-					<div class="tv-controls">
-						<div class="tv-controls__day-select">
-							<ul class="day-select-list swiper-wrapper">
-								<?php foreach ($days as $n => $day) : ?>
-									<li class="day-select-item swiper-slide">
-										<?php if ($n == ($currentNumDay - 1)) : ?>
-											<button class="selected">
-												<?php echo $day . ',' . date('d', strtotime("$currentDate +{$n} day")); ?>
-											</button>
-										<?php else : ?>
-											<button class="no-selected">
-												<?php echo $day . ',' . date('d', strtotime("$currentDate +{$n} day")); ?>
-											</button>
-										<?php endif; ?>
-									</li>
-								<?php endforeach; ?>
-							</ul>
+    <div class="container container_adv"><?php render_adv('page', $page_id, 'before_main'); ?></div>
+    <div class="container main-container">
+        <div class="content-wrapper">
+            <div class="main-content">
+                <?php render_topic_bar(get_the_title(), false); ?>
+                <div class="mob-container">
+                    <div class="tv-controls">
+                        <div class="tv-controls__day-select">
+                            <ul class="day-select-list swiper-wrapper">
+                                <?php foreach ($days as $n => $day) : ?>
+                                    <li class="day-select-item swiper-slide">
+                                        <?php if ($n == ($currentNumDay - 1)) : ?>
+                                            <button class="selected">
+                                                <?php echo $day . ',' . date('d', strtotime("$currentDate +{$n} day")); ?>
+                                            </button>
+                                        <?php else : ?>
+                                            <button class="no-selected">
+                                                <?php echo $day . ',' . date('d', strtotime("$currentDate +{$n} day")); ?>
+                                            </button>
+                                        <?php endif; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
                             <div class="day-select-list__pagination swiper-pagination"></div>
-						</div>
-						<div class="select-channel">
-							<button>Выбрать канал</button>
-							<div class="select-channel__menu">
-								<ul class="channels-list">
-									<?php $dow = date('w', strtotime($currentDate)) + 1; ?>
-									<?php foreach (get_day_list(sanitize_file_name(mb_strtolower(strftime("%u %A, %e %B", strtotime("$currentDate +{$dow} day"))))) as $channel) : ?>
-										<li class="channels-list__item">
-											<?php echo $channel->title; ?>
-										</li>
-									<?php endforeach; ?>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="tv-programme_container">
-						<?php echo apply_filters('the_content', get_the_content()) ?>
-					</div>
-					<div>
-						<?php foreach ($daysFull as $n => $day) : ?>
-							<div class="tv-day-programme">
-								<h2 class="tv-programme__title">Программа на сегодня – <?php echo strftime("%A, %d %B", strtotime("$currentDate +{$n} day")); ?></h2>
-								<?php render_tv_programm_list(get_day_list(sanitize_file_name(mb_strtolower(strftime("%u %A, %e %B", strtotime("$currentDate +{$n} day")))))); ?>
-							</div>
-						<?php endforeach; ?>
-					</div>
-				</div>
-			</div>
-			<div class="second-content">
-				<?php render_most_read_news_template(true, 'page', $page_id); ?>
-				<?php render_top_three_news_template('page', $page_id); ?>
-				<?php render_newspapers_template('page', $page_id); ?>
-			</div>
-		</div>
-		<?php render_sidebar(); ?>
-	</div>
+                        </div>
+                        <div class="select-channel">
+                            <button>Выбрать канал</button>
+                            <div class="select-channel__menu">
+                                <ul class="channels-list">
+                                    <?php
+                                    $dow = date('w', strtotime($currentDate)) + 1;
+                                    $filename = sanitize_file_name(mb_strtolower(strftime("%u %A, %e %B", strtotime("$currentDate +{$dow} day"))));
+                                    $content = get_day_list($filename);
+                                    ?>
+                                    <?php if($content):?>
+                                        <?php foreach ($content as $channel) : ?>
+                                            <li class="channels-list__item">
+                                                <?php echo $channel->title; ?>
+                                            </li>
+                                        <?php endforeach;?>
+                                    <?php endif; ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tv-programme_container">
+                        <?php echo apply_filters('the_content', get_the_content()) ?>
+                    </div>
+                    <div>
+                        <?php foreach ($daysFull as $n => $day) : ?>
+                            <div class="tv-day-programme">
+                                <?php
+                                    $data_to_string = strftime("%A, %d %B", strtotime("$currentDate +{$n} day"));
+                                    $filename = sanitize_file_name(mb_strtolower(strftime("%u %A, %e %B", strtotime("$currentDate +{$n} day"))));
+                                    $content = get_day_list($filename);
+                                ?>
+                                <h2 class="tv-programme__title">Программа на сегодня – <?php echo $data_to_string; ?></h2>
+                                <?php if($content): ?>
+                                    <?php render_tv_programm_list($content); ?>
+                                <?php endif; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="second-content">
+                <?php render_most_read_news_template(true, 'page', $page_id); ?>
+                <?php render_top_three_news_template('page', $page_id); ?>
+                <?php render_newspapers_template('page', $page_id); ?>
+            </div>
+        </div>
+        <?php render_sidebar(); ?>
+    </div>
 </main>
 
 <?php get_footer(); ?>

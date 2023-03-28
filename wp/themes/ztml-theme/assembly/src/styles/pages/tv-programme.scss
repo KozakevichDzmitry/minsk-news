@@ -62,6 +62,9 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 30px;
+    @media (min-width: 1190px) {
+      flex-wrap: nowrap;
+    }
 
     &__day-select {
       position: relative;
@@ -130,6 +133,7 @@
     .select-channel {
       z-index: 10;
       width: 165px;
+      padding-bottom: 30px;
 
       button {
         display: flex;

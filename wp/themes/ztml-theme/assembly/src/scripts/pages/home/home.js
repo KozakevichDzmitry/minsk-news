@@ -119,6 +119,7 @@ jQuery(document).ready(function ($) {
 
 	if ($('.swiper-container.two').length) new Swiper(".swiper-container.two", {
 		clickable: true,
+		slideToClickedSlide:true,
 		effect: "coverflow",
 		autoHeight: false,
 		loop: false,
