@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
 		initSlider.on("edge", function (event, slick, direction) {
 			if (direction === "right") {
 				$.ajax({
-					url: ajaxpagination.ajaxurl,
+					url: ajax.ajaxurl,
 					type: "post",
 					data: {
 						action: "satmsingleload",
@@ -30,7 +30,7 @@ jQuery(document).ready(function ($) {
 				});
 			} else {
 				$.ajax({
-					url: ajaxpagination.ajaxurl,
+					url: ajax.ajaxurl,
 					type: "post",
 					data: {
 						action: "satmsingleload",

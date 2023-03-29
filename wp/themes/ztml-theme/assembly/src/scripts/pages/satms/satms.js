@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
 	}
 	loadMoreeBtn.click(function () {
 		$.ajax({
-			url: ajaxpagination.ajaxurl,
+			url: ajax.ajaxurl,
 			type: "post",
 			data: dataRequest,
 			beforeSend: function(){

@@ -5,7 +5,7 @@ jQuery(function ($) {
 		action: "loadmorenews",
 		offset: 3,
 		exclude: $(".main-content").attr("id"),
-		load: 9,
+		load: 2,
 	};
 
 	const observer = new IntersectionObserver(

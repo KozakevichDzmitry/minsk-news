@@ -8,6 +8,7 @@ require_once(COMPONENTS_PATH . 'content-exist-markers.php');
 
 function render_news_whole_post($id, $cat = NULL)
 {
+    gt_set_post_view($id);
     $single_post = get_post($id);
     $author_id = $single_post->post_author;
     $taxonomies = get_my_taxonomies($id);

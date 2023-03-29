@@ -1,1 +1,1 @@
-import './single-news.js'
+import '../../components/loadmore.js'

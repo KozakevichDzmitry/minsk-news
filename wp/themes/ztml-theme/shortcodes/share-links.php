@@ -16,17 +16,18 @@ function share_links($post_ID=null)
     if(!$post) $post =  get_post($post_ID);
     $modern_link = get_permalink($post_ID);
     $share_block .= '<div class="share-block">';
-    $share_block .='<div onclick="share_popup(\'https://www.facebook.com/share.php?u=' . $modern_link . '\', \'Поделиться в Facebook\', 650, 500)" class="nk_share_button nk_share_button--fb">';
-    $share_block .= render_facebook_share_icon() . '</div>';
-    $share_block .= '<div onclick="share_popup(\'https://telegram.me/share/url?url=' . $modern_link . '&text=' . get_the_title($post_ID) . '\', \'Поделиться в Телеграме\', 580, 415)" class="nk_share_button nk_share_button--telegram">';
-    $share_block .= render_telegram_share_icon() . '</div>';
-    $share_block .= '<div onclick="share_popup(\'https://vk.com/share.php?url=' . $modern_link . '&title=' . get_the_title($post_ID) . '&image=' . get_the_post_thumbnail_url($post) . '\', \'Поделиться ВКонтакте \', 650, 600)" class="nk_share_button nk_share_button--vk">'; $share_block .= render_vk_share_icon() . '</div>';
-    $share_block .= '<div onclick="share_popup(\'https://twitter.com/intent/tweet?text=' . get_permalink($post_ID) . ' ' . urlencode($post->post_title) . '\', \'Твитнуть\', 580, 415)" class="nk_share_button nk_share_button--tw">';
-    $share_block .= render_twitter_share_icon() . '</div>';
-    $share_block .= '<div onclick="share_popup(\'https://connect.ok.ru/offer?url=' . $modern_link . '\', \'Поделиться в Одноклассниках\', 580, 415)" class="nk_share_button nk_share_button--ok">';
-    $share_block .= render_ok_share_icon() . '</div>';
-    $share_block .= '<div onclick="share_popup(\'viber://forward?text=' . $modern_link . '\', \'Поделиться в Вайбере\', 580, 415)" class="nk_share_button nk_share_button--viber">';
-    $share_block .= render_viber_icon() . '</div></div>';
+    $share_block .='<a data-link=' . $modern_link . ' class="share_button" id="facebook">';
+    $share_block .= 'facebook</a>';
+    $share_block .= '<a data-link=' . $modern_link . ' data-title=' . get_the_title($post_ID) . ' class="share_button" id="telegram">';
+    $share_block .= 'telegram</a>';
+    $share_block .= '<a data-link=' . $modern_link . ' data-title=' . get_the_title($post_ID) . ' class="share_button" id="vk">';
+    $share_block .= 'vk</a>';
+    $share_block .= '<a data-link=' . $modern_link . ' data-title=' . urlencode($post->post_title) . ' class="share_button" id="tw">';
+    $share_block .= 'twitter</a>';
+    $share_block .= '<a data-link=' . $modern_link . ' class="share_button" id="ok">';
+    $share_block .= 'ok</a>';
+    $share_block .= '<a data-link=' . $modern_link . ' class="share_button" id="viber" onclick="share_popup(\'viber://forward?text=' . $modern_link . '\', \'Поделиться в Вайбере\', 580, 415)">';
+    $share_block .= 'viber</a></div>';
     return $share_block;
 }
 
