@@ -18,7 +18,7 @@ if( strpos( $_SERVER['HTTP_ACCEPT'], 'image/webp' ) !== false || strpos( $_SERVE
     define('WEBP_SUPPORT', false);
 }
 if (!defined('_S_VERSION')) {
-    define('_S_VERSION', '2.0');
+    define('_S_VERSION', '2.1');
 }
 
 require_once(dirname(__FILE__) . '/gallery/gallery.php');
@@ -217,7 +217,7 @@ function page_scripts()
 function swiper_register()
 {
     wp_enqueue_style('swiper', LIBS_PATH . 'swiper/swiper.css');
-    wp_enqueue_script('swiper', LIBS_PATH . 'swiper/swiper.js', array('jquery'), null, true);
+    wp_enqueue_script('swiper', LIBS_PATH . 'swiper/swiper.js', array('jquery'), '8.4.6', true);
 }
 function lightbox_register(){
     wp_enqueue_style('lightbox', LIBS_PATH . 'lightbox/css/lightbox.min.css');
