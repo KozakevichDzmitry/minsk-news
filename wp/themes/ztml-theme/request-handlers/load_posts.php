@@ -1,4 +1,6 @@
 <?php
+add_action('wp_ajax_loadmore', 'load_posts');
+add_action('wp_ajax_nopriv_loadmore', 'load_posts');
 function load_posts()
 {
     $args = unserialize(stripslashes($_POST['query']));

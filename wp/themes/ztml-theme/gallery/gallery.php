@@ -15,6 +15,7 @@ add_filter('post_gallery', 'td_gallery_shortcode', 10, 4);
 
 function gallery_enqueue_scripts()
 {
+    wp_deregister_script ('swiper');
     wp_enqueue_style('swiper', get_template_directory_uri() . '/assembly/src/libs/swiper/swiper.css');
     wp_enqueue_script('swiper', get_template_directory_uri() . '/assembly/src/libs/swiper/swiper.js', array('jquery'), '8.4.6', true);
     wp_enqueue_style('lightbox', get_template_directory_uri() . '/assembly/src/libs/lightbox/css/lightbox.min.css');
