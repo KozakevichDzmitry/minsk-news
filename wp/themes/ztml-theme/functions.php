@@ -18,7 +18,7 @@ if( strpos( $_SERVER['HTTP_ACCEPT'], 'image/webp' ) !== false || strpos( $_SERVE
     define('WEBP_SUPPORT', false);
 }
 if (!defined('_S_VERSION')) {
-    define('_S_VERSION', '2.1');
+    define('_S_VERSION', '2.11');
 }
 
 require_once(dirname(__FILE__) . '/gallery/gallery.php');

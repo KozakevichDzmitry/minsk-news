@@ -29,7 +29,7 @@ function render_district_item_tablet($title, $id, $is_active = false, $slug, $di
                 <?php render_news_template_line($timeline_news_posts[1]->ID,false, false, false, false); ?>
             </div>
             <div class="district-preview__see-all">
-                <a href=<?php echo get_permalink($id); ?>>
+                <a href=<?php echo get_permalink($district->ID); ?>>
                     <span>Смотреть всё</span>
                 </a>
             </div>

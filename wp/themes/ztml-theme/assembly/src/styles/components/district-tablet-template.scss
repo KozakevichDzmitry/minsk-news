@@ -17,6 +17,7 @@
       filter: blur(1px);
       color: $black60-color;
       font-size: 1em;
+      cursor: pointer;
 
       @media(max-width: 1200px) and (min-width: 941px) {
         font-size: calc(9px + (12 - 9) * ((100vw - 940px) / (1200 - 940)));
@@ -116,7 +117,7 @@
         filter: none;
         color: $black-color;
         font-size: 1em;
-
+        cursor: auto;
 
         .district-preview__title {
           font-size: 1.92em;
