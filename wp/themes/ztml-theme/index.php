@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<?php require_once(FUNC_PATH . 'get_post_view.php'); ?>
+
 <?php require_once(COMPONENTS_PATH . 'pdf-attachments.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'topic-bar.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'sidebar.php'); ?>
@@ -21,7 +23,7 @@
 	<div class="container main-container">
 		<div class="content-wrapper">
             <div class="main-content">
-                <?php gt_set_post_view(); ?>
+                <?php gt_set_post_view($post->ID); ?>
                 <?php render_news_whole_post($post->ID); ?>
             </div>
 			<?php render_newspapers_template(); ?>
