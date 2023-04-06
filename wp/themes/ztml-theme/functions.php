@@ -73,6 +73,7 @@ require_once(REQUEST_HANDLERS . 'taxonomy-videos-posts.php');
 require_once(REQUEST_HANDLERS . 'ethers-posts.php');
 require_once(__DIR__ . "/tv-parser.php");
 require_once(REQUEST_HANDLERS . 'tv-program.php');
+require_once(REQUEST_HANDLERS . 'announce.php');
 
 require_once(SHORTCODES_PATH . 'extrenal-radio-player.php');
 require_once(SHORTCODES_PATH . 'eternal-video.php');

@@ -280,7 +280,10 @@ function td_gallery_shortcode($output = '', $atts, $content = false)
                       </div>";
 
             gallery_enqueue_scripts();
-            wp_add_inline_script( 'swiper',$script);
+            add_action( 'wp_footer',function () use ($script) {
+                echo '<script>'.$script.'</script>';
+            }, 999 );
+
         }//end check if we have html code for the slider
     }//end if slide
 
