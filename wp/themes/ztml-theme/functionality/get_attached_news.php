@@ -1,5 +1,5 @@
 <?php
-function get_attached_news($count, $term, $add_tax = NULL, $attached = false)
+function get_attached_news($count, $term, $add_tax = NULL, $attached = false, $cache_results=true)
 {
     $date_now = (new DateTime("now", new DateTimeZone('Europe/Minsk')))->format('Y-m-d H:i:s');
 
@@ -10,6 +10,7 @@ function get_attached_news($count, $term, $add_tax = NULL, $attached = false)
         'post_status' => 'publish',
         'orderby' => 'publish_date',
         'order' => 'DESC',
+        'cache_results' => $cache_results,
         'tax_query' => array(
             array(
                 'taxonomy' => 'news-list',
@@ -59,6 +60,7 @@ function get_attached_news($count, $term, $add_tax = NULL, $attached = false)
             'post_type' => 'news',
             'posts_per_page' => $needs_posts_count,
             'post_status' => 'publish',
+            'cache_results' => $cache_results,
             'tax_query' => array(
                 array(
                     'taxonomy' => 'news-list',

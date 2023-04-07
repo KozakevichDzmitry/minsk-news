@@ -9,6 +9,7 @@ function render_main_news_template()
 		'post_type' => array( 'news', 'meri'),
 		'posts_per_page' => '8',
 		'post_status' => 'publish',
+        'cache_results' => false,
 		'tax_query' => array(
 			'relation' => 'OR',
 			array(
@@ -47,7 +48,8 @@ function render_main_news_template()
 				'post_type' => array( 'news', 'meri'),
 				'post_status' => 'publish',
 				'order' => 'DESC',
-				'tax_query' => array(
+                'cache_results' => false,
+                'tax_query' => array(
 					'relation' => 'OR',
 					array(
 						'taxonomy' => 'news-list',
@@ -71,7 +73,8 @@ function render_main_news_template()
 				'post_type' => array( 'news', 'meri'),
 				'post_status' => 'publish',
 				'order' => 'ASC',
-				'tax_query' => array(
+                'cache_results' => false,
+                'tax_query' => array(
 					'relation' => 'OR',
 					array(
 						'taxonomy' => 'news-list',
