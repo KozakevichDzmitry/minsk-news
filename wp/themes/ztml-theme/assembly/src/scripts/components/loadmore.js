@@ -27,6 +27,7 @@ jQuery(function ($) {
 							lastPost = $(".main-content .post:last")[0];
 							$(".loading-posts").removeClass("active");
 							observer.observe(lastPost);
+							if(window._gallery) window._gallery.initSlider()
 						} else {
 							observer.unobserve(lastPost);
 							$(".loading-posts").removeClass("active");

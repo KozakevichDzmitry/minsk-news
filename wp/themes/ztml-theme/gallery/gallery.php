@@ -17,7 +17,8 @@ function gallery_enqueue_scripts()
 {
     wp_deregister_script ('swiper');
     wp_enqueue_style('swiper', get_template_directory_uri() . '/assembly/src/libs/swiper/swiper.css');
-    wp_enqueue_script('swiper', get_template_directory_uri() . '/assembly/src/libs/swiper/swiper.js', array('jquery'), '8.4.6', true);
+    wp_enqueue_script('swiper', get_template_directory_uri() . '/assembly/src/libs/swiper/swiper.js', null, '8.4.6', true);
+//    wp_enqueue_script('gallery', get_template_directory_uri() . '/gallery/gallery.js', array('swiper'), '1.0', true);
     wp_enqueue_style('lightbox', get_template_directory_uri() . '/assembly/src/libs/lightbox/css/lightbox.min.css');
     wp_enqueue_script('lightbox', get_template_directory_uri() . '/assembly/src/libs/lightbox/js/lightbox.min.js', array('jquery'), null, true);
     wp_enqueue_style('mn-gallery', get_template_directory_uri() . '/gallery/gallery.css');
@@ -207,58 +208,6 @@ function td_gallery_shortcode($output = '', $atts, $content = false)
                 $cur_item_nr++;
             }
         }
-        $script = "document.addEventListener('DOMContentLoaded', () => {
-                                const sliderThumbs = new Swiper('#thumb_$gallery_slider_unique_id', {
-                                    speed: 400,
-                                    slidesPerView: 2,
-                                    spaceBetween: 20,
-                                    wrapperClass: 'thumb-swiper-wrapper-$gallery_slider_unique_id',
-                                    slideClass: 'thumb-swiper-slide-$gallery_slider_unique_id',
-                                    grabCursor: true,
-                                    preloadImages: false,
-                                    lazy: {
-                                        loadPrevNext: true,
-                                    },
-                                    navigation: {
-                                        nextEl: '.button-next-$gallery_slider_unique_id',
-                                        prevEl: '.button-prev-$gallery_slider_unique_id',
-                                    },
-                                     breakpoints: {
-                                        580: {
-                                          slidesPerView: 4,
-                                          spaceBetween: 10
-                                        },
-                                    }, 
-                                    breakpoints: {
-                                        420: {
-                                          slidesPerView: 3,
-                                          spaceBetween: 10
-                                        },
-                                    },
-                                   
-                                    freeMode: true, // при перетаскивании превью ведет себя как при скролле
-                                });
-                                const swiper = new Swiper('#gl_$gallery_slider_unique_id', {
-                                    speed: 800,
-                                    spaceBetween: 24,
-                                    slidesPerView: 1,
-                                    wrapperClass: 'gl-swiper-wrapper-$gallery_slider_unique_id',
-                                    slideClass: 'gl-swiper-slide-$gallery_slider_unique_id',
-                                    grabCursor: true,
-                                    preloadImages: false,
-                                    lazy: {
-                                        loadPrevNext: true,
-                                    },
-                                    mousewheel: {
-                                        sensitivity: 3,
-                                        eventsTarget: '.gl-swiper-slide-$gallery_slider_unique_id'
-                                    },
-                                    thumbs: {
-                                        swiper: sliderThumbs
-                                    },
-                                });
-                                swiper.updateAutoHeight(800)
-                    })";
         if (!empty($title_slide)) {
             $buffy .= "<h3>$title_slide</h3>";
         }
@@ -278,12 +227,7 @@ function td_gallery_shortcode($output = '', $atts, $content = false)
                             <div class='thumb-swiper-button-next button-next-$gallery_slider_unique_id'></div>
                         </div>
                       </div>";
-
-            gallery_enqueue_scripts();
-            add_action( 'wp_footer',function () use ($script) {
-                echo '<script>'.$script.'</script>';
-            }, 999 );
-
+//                gallery_enqueue_scripts();
         }//end check if we have html code for the slider
     }//end if slide
 
