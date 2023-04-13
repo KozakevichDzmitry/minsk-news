@@ -9,7 +9,8 @@ function loadmore_news()
 		'posts_per_page' => $_POST['load'],
 		'post_type' => 'news',
 		'exclude' => $_POST['exclude'],
-		'offset' => $_POST['offset']
+		'offset' => $_POST['offset'],
+        'cache_results' => false,
 	);
 
 	$posts = get_posts($args);
