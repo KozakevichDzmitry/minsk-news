@@ -187,7 +187,6 @@ function td_gallery_shortcode($output = '', $atts, $content = false)
                                     <a class='gl-slider__link' 
                                     data-lightbox='$gallery_slider_unique_id' 
                                     href='$td_temp_image_url_full'
-                                    title={$image_attachment['title']}
                                     data-title='$img_description'
                                     >
                                        <img class='swiper-lazy' src='$default_img_src' data-src='$td_temp_image_url[0]' $srcset_sizes alt='$img_alt'>

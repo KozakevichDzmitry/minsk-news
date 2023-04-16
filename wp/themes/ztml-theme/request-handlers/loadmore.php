@@ -10,7 +10,6 @@ function loadmore_news()
 		'post_type' => 'news',
 		'exclude' => $_POST['exclude'],
 		'offset' => $_POST['offset'],
-        'cache_results' => false,
 	);
 
 	$posts = get_posts($args);
