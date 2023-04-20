@@ -1,4 +1,4 @@
-window.onload = () => {
+jQuery(document).ready(function ($) {
     new Swiper('.programs-list', {
         wrapperClass: 'programs-wrapper',
         slideClass: 'program-card',
@@ -69,7 +69,7 @@ window.onload = () => {
             },
         }
     });
-}
+})
 
 jQuery(document).ready(function ($) {
     const erp = $("#radio-min-player");

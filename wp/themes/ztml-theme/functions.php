@@ -111,14 +111,26 @@ add_action('after_setup_theme', 'add_post_formats', 20);
 add_filter('wpcf7_form_elements', function ($form) {
     return do_shortcode($form);
 });
-
+function fileTimeJsCss($fileName, $typeCssOrJS)
+{
+    switch ($typeCssOrJS) {
+        case "css":
+            return filemtime(get_theme_file_path('/assets/styles/' . $fileName . '.min.css'));
+            break;
+        case "js":
+            return filemtime(get_theme_file_path('/assets/js/' . $fileName . '.min.js'));
+            break;
+        default:
+            return '1';
+    }
+}
 function page_scripts()
 {
     global $wp_query;
     global $template;
     $template = basename($template);
 
-    wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/styles/style.min.css', array(), _S_VERSION);
+    wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/styles/style.min.css', array(), fileTimeJsCss('style', 'css'));
     wp_enqueue_script('main-head', get_template_directory_uri() . '/assets/js/main-head.min.js', array('jquery'), _S_VERSION);
     wp_enqueue_script('main-footer', get_template_directory_uri() . '/assets/js/main-footer.min.js', array('jquery'), _S_VERSION, true);
     wp_localize_script('main-head', 'ajax', array(
@@ -172,8 +184,8 @@ function page_scripts()
         } elseif ($template == 'page-advertisement.php') {
             wp_enqueue_script('advertisement', get_template_directory_uri() . '/assets/js/advertisement.min.js', array('jquery'), _S_VERSION, true);
         } elseif ($template == 'radio-minsk.php') {
-            swiper_register();
-            wp_enqueue_script('radio-minsk-page', get_template_directory_uri() . '/assets/js/radio-minsk.min.js', array('jquery', 'swiper'), _S_VERSION, true);
+            swiper_register(false);
+            wp_enqueue_script('radio-minsk-page', get_template_directory_uri() . '/assets/js/radio-minsk.min.js', array('jquery', 'swiper'), fileTimeJsCss('radio-minsk', 'js'), false);
         } elseif ($template == 'satms.php') {
             //нет такой стрицы
             wp_enqueue_script('satms', get_template_directory_uri() . '/assets/js/satms.min.js', array('jquery'), _S_VERSION, true);
@@ -217,10 +229,10 @@ function page_scripts()
     }
 }
 
-function swiper_register()
+function swiper_register($inFooter = true)
 {
     wp_enqueue_style('swiper', LIBS_PATH . 'swiper/swiper.css');
-    wp_enqueue_script('swiper', LIBS_PATH . 'swiper/swiper.js', null, '8.4.6', true);
+    wp_enqueue_script('swiper', LIBS_PATH . 'swiper/swiper.js', null, '8.4.6', $inFooter);
 }
 function lightbox_register(){
     wp_enqueue_style('lightbox', LIBS_PATH . 'lightbox/css/lightbox.min.css');
