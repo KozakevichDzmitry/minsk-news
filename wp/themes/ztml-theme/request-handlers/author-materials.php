@@ -30,7 +30,6 @@ function author_materials_load()
 	echo json_encode(
 		array(
 			'posts' => $template_posts_html,
-			'count' => $res['count']
 		)
 	);
 

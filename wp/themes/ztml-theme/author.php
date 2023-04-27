@@ -11,15 +11,15 @@ require_once(COMPONENTS_PATH . 'calendar.php');
 $show_count = 27;
 $load_count = 27;
 $author_ID=get_queried_object()->ID;
-$meri_args = array(
+$args = array(
     'post_status' => 'publish',
     'posts_per_page' => $show_count,
     'post_type' => 'any',
     'author' => $author_ID
 );
 
-$meri_posts = get_posts($meri_args);
-$count_posts = count_user_posts( $author_ID , ['news','video','authors-column'], true );
+$posts = get_posts($args);
+$count_posts = count_user_posts( $author_ID , ['news','authors-column'], true );
 
 ?>
 
@@ -58,8 +58,8 @@ $last_post_id = get_posts(array(
                     ));
                     ?>
                     <div class="ta-list">
-                        <?php if (!empty($meri_posts)) : ?>
-                            <?php foreach ($meri_posts as $post) : ?>
+                        <?php if (!empty($posts)) : ?>
+                            <?php foreach ($posts as $post) : ?>
                                 <?php render_line_regular_news($post->ID, true); ?>
                             <?php endforeach; ?>
                         <?php endif; ?>

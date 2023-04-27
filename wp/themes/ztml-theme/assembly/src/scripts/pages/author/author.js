@@ -1,6 +1,7 @@
 jQuery(document).ready(function ($) {
 	const loadBtnEl = $(".load-moree-btn");
 	const authorID = document.querySelector('main').dataset.authorid
+	const maxCountPost = loadBtnEl.attr("data-all-posts")
 	const ajaxRequest = (args, cb) =>
 		$.ajax({
 			url: "/wp-admin/admin-ajax.php",
@@ -30,8 +31,8 @@ jQuery(document).ready(function ($) {
 			resetCalendar.hide();
 
 			if (data) {
-				const { posts, count } = JSON.parse(data);
-				if (count <= dataRequest.offset + dataRequest.load) {
+				const { posts} = JSON.parse(data);
+				if (maxCountPost <= dataRequest.offset + dataRequest.load) {
 					loadBtnEl.hide();
 				} else {
 					loadBtnEl.show();
@@ -41,7 +42,7 @@ jQuery(document).ready(function ($) {
 				$(".main-content .ta-list").append(posts);
 
 				dataRequest.offset += dataRequest.load;
-				$(".load-moree-btn button").attr("data-all-posts", count);
+				// $(".load-moree-btn button").attr("data-all-posts", count);
 			}
 		});
 	});
@@ -51,9 +52,9 @@ jQuery(document).ready(function ($) {
 
 		ajaxRequest(last_date ? { date: last_date } : {}, (data) => {
 			if (data) {
-				const { posts, count } = JSON.parse(data);
+				const { posts } = JSON.parse(data);
 
-				if (count <= dataRequest.offset + dataRequest.load) {
+				if (maxCountPost <= dataRequest.offset + dataRequest.load) {
 					loadBtnEl.hide();
 				} else {
 					loadBtnEl.show();
@@ -61,7 +62,7 @@ jQuery(document).ready(function ($) {
 
 				$(".main-content .ta-list").append(posts);
 				dataRequest.offset += dataRequest.load;
-				$(".load-moree-btn button").attr("data-all-posts", count);
+				// $(".load-moree-btn button").attr("data-all-posts", count);
 
 				loadBtnEl.find("button").text("Показать еще");
 			}
