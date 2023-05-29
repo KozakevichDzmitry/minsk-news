@@ -140,7 +140,7 @@
   line-height: 1.1;
   padding: 1em;
   color: #d7d6d6;
-  background-color: #9999998f;
+  background-color: rgba(153, 153, 153, .56);
 }
 .gl-slide-copywrite{
   margin-bottom: 0.5em;
